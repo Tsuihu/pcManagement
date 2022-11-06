@@ -1,4 +1,4 @@
-package com.higher.collectmodule.util;
+package com.higher.pcmanagement.util;
 
 /**
  * 封装返回数据状态码

@@ -1,10 +1,10 @@
-package com.higher.collectmodule.service.impl;
+package com.higher.pcmanagement.service.impl;
 
-import com.higher.collectmodule.dao.ManagerDao;
-import com.higher.collectmodule.exception.BusinessException;
-import com.higher.collectmodule.pojo.Manager;
-import com.higher.collectmodule.service.ManagerService;
-import com.higher.collectmodule.util.ResultCodeEnum;
+import com.higher.pcmanagement.dao.ManagerDao;
+import com.higher.pcmanagement.exception.BusinessException;
+import com.higher.pcmanagement.pojo.Manager;
+import com.higher.pcmanagement.service.ManagerService;
+import com.higher.pcmanagement.util.ResultCodeEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

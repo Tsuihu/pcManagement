@@ -1,7 +1,7 @@
-package com.higher.collectmodule.service;
+package com.higher.pcmanagement.service;
 
-import com.higher.collectmodule.pojo.Manager;
-import com.higher.collectmodule.exception.BusinessException;
+import com.higher.pcmanagement.pojo.Manager;
+import com.higher.pcmanagement.exception.BusinessException;
 import org.springframework.stereotype.Component;
 
 //@Service

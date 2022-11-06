@@ -1,4 +1,4 @@
-package com.higher.collectmodule;
+package com.higher.pcmanagement;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,6 +1,6 @@
-package com.higher.collectmodule.dao;
+package com.higher.pcmanagement.dao;
 
-import com.higher.collectmodule.pojo.Manager;
+import com.higher.pcmanagement.pojo.Manager;
 import org.springframework.stereotype.Component;
 
 //@Repository

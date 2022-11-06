@@ -1,4 +1,4 @@
-package com.higher.collectmodule.pojo;
+package com.higher.pcmanagement.pojo;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;

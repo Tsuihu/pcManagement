@@ -1,4 +1,4 @@
-package com.higher.collectmodule.pojo.bo;
+package com.higher.pcmanagement.pojo.bo;
 
 import lombok.Data;
 

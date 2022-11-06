@@ -1,7 +1,7 @@
-package com.higher.collectmodule.exception;
+package com.higher.pcmanagement.exception;
 
-import com.higher.collectmodule.util.ResultCodeEnum;
-import com.higher.collectmodule.util.ResultModel;
+import com.higher.pcmanagement.util.ResultCodeEnum;
+import com.higher.pcmanagement.util.ResultModel;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

@@ -1,6 +1,6 @@
-package com.higher.collectmodule.exception;
+package com.higher.pcmanagement.exception;
 
-import com.higher.collectmodule.util.ResultCodeEnum;
+import com.higher.pcmanagement.util.ResultCodeEnum;
 import lombok.Data;
 
 @Data

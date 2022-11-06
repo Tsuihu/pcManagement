@@ -1,15 +1,15 @@
-package com.higher.collectmodule;
+package com.higher.pcmanagement;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan(basePackages = "com.higher.collectmodule.dao")
-public class CollectModualAppliction {
+@MapperScan(basePackages = "com.higher.pcmanagement.dao")
+public class PcManagementAppliction {
 
     public static void main(String[] args) {
-        SpringApplication.run(CollectModualAppliction.class, args);
+        SpringApplication.run(PcManagementAppliction.class, args);
     }
 
 }

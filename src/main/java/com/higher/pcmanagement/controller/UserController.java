@@ -1,11 +1,11 @@
-package com.higher.collectmodule.controller;
+package com.higher.pcmanagement.controller;
 
-import com.higher.collectmodule.pojo.Manager;
-import com.higher.collectmodule.pojo.bo.LoginModel;
-import com.higher.collectmodule.service.ManagerService;
-import com.higher.collectmodule.util.ResultCodeEnum;
-import com.higher.collectmodule.util.ResultModel;
-import com.higher.collectmodule.exception.BusinessException;
+import com.higher.pcmanagement.pojo.Manager;
+import com.higher.pcmanagement.pojo.bo.LoginModel;
+import com.higher.pcmanagement.service.ManagerService;
+import com.higher.pcmanagement.util.ResultCodeEnum;
+import com.higher.pcmanagement.util.ResultModel;
+import com.higher.pcmanagement.exception.BusinessException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
