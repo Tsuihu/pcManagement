@@ -17,7 +17,7 @@ public class Manager {
     private String password;
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonFormat(pattern = "yyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-    private Date registeTime;
+    private Date registTime;
 
     @Override
     public String toString() {
@@ -27,7 +27,7 @@ public class Manager {
                 ", idcard='" + idcard + '\'' +
                 ", tel='" + tel + '\'' +
                 ", password='" + password + '\'' +
-                ", registeTime=" + registeTime +
+                ", registTime=" + registTime +
                 '}';
     }
 }

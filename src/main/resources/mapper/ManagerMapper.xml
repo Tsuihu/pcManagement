@@ -10,8 +10,8 @@
     </select>
     <!--  注册  -->
     <insert id="addManager">
-        insert into manager(name,idcard,tel,password,registeTime)
-        values(#{name},#{idcard},#{tel},#{password},#{registeTime})
+        insert into manager(name,idcard,tel,password,registTime)
+        values(#{name},#{idcard},#{tel},#{password},#{registTime})
     </insert>
     <!--  检查电话是否存在  -->
     <select id="checkManagerRepeat" resultType="int">
