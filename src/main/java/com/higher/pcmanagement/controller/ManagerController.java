@@ -39,6 +39,6 @@ public class ManagerController {
     @PostMapping("registe.do")
     public ResultModel<Manager> registe(@RequestBody Manager manager) throws BusinessException {
         managerService.addManager(manager);
-        return new ResultModel<>(ResultCodeEnum.SUCCESS,manager,"");
+        return new ResultModel<>(ResultCodeEnum.SUCCESS,manager,"注册成功");
     }
 }
