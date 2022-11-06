@@ -28,7 +28,7 @@ public class ManagerController {
     public ResultModel<Manager> login(@RequestBody LoginModel model) throws BusinessException {
         Manager manager = managerService.login(model.getTel(), model.getPassword());
         //上面的方法只要不报错，就是调用成功，可以直接返回。
-        return new ResultModel<>(ResultCodeEnum.SUCCESS, manager, "");
+        return new ResultModel<>(ResultCodeEnum.SUCCESS, manager, "登录成功");
     }
     /**
      * 注册接口
