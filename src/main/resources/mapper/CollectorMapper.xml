@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.higher.pcmanagement.dao.CollectorDao">
+    <select id="getPageCollector" resultType="com.higher.pcmanagement.pojo.Collector">
+        select *
+        from collector
+        limit #{rowBegin},#{pageSize};
+    </select>
+    <select id="getPageCollectorCount" resultType="Integer">
+        select count(0)
+        from collector
+    </select>
+
+    <delete id="deleteCollector">
+        delete from collector where collectorId=#{collectorId}
+    </delete>
+
+    <insert id="addCollector" >
+        insert into collector values(null,#{tel},#{idcard},#{name},#{password},#{organizationId},#{registTime})
+    </insert>
+
+    <update id="updateCollector">
+        update collector set tel=#{tel},idcard=#{idcard},name=#{name},password=#{password},organizationId=#{organizationId},registTime=#{registTime}
+        where collectorId=#{collectorId}
+    </update>
+</mapper>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.higher.pcmanagement.dao.BoxDao">
+    <select id="getPageBox" resultType="com.higher.pcmanagement.pojo.Box">
+        select *
+        from box
+        limit #{rowBegin},#{pageSize};
+    </select>
+    <select id="getPageBoxCount" resultType="Integer">
+        select count(0)
+        from collector
+    </select>
+
+    <delete id="deleteBox">
+        delete from box where boxId=#{boxId}
+    </delete>
+
+    <insert id="addBox" >
+        insert into box values(null,#{boxCode},#{status},#{collectorId},#{transferId},#{testerId},
+                               #{pointId},#{testOrganiationId},#{openTime},#{closeTime})
+    </insert>
+
+    <update id="updateBox">
+        update box set boxCode=#{boxCode},status=#{status},collectorId=#{collectorId},transferId=#{transferId},testerId=#{testerId},
+                       pointId=#{pointId},testOrganiationId=#{testOrganiationId},openTime=#{openTime},closeTime=#{closeTime}
+        where boxId=#{boxId}
+    </update>
+</mapper>
