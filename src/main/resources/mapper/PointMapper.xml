@@ -3,12 +3,39 @@
 
 <mapper namespace="com.higher.pcmanagement.dao.PointDao">
 
+    <delete id="deletePoint">
+        delete
+        from point
+        where pointId=#{pointId};
+    </delete>
+
+    <update id="updatePoint">
+        update point
+        set pointName = #{pointName}
+        where pointId=#{pointId};
+    </update>
+
+
+    <!--    根据检测名字查询改字段-->
+    <select id="getPointByName" resultType="com.higher.pcmanagement.pojo.Point">
+        select *
+        from point where pointName=#{pointName};
+    </select>
+<!--    添加检测点-->
+    <insert id="addPoint">
+        insert into point (pointName)
+        values (#{pointName});
+    </insert>
+
+<!--    分页查询-->
     <select id="getPagePoint" resultType="com.higher.pcmanagement.pojo.Point">
         select *
         from point limit #{rowBegin},#{pageSize};
     </select>
+<!--    查询总行数-->
     <select id="getPagePointCount" resultType="java.lang.Integer">
         select count(0)
         from point;
     </select>
+
 </mapper>

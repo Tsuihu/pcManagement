@@ -16,4 +16,9 @@ public class ResultModel<T> {
         this.data = data;
         this.errMsg = errMsg;
     }
+
+    public ResultModel(ResultCodeEnum codeEnum, String errMsg) {
+        this.code = codeEnum.getCode();
+        this.errMsg = errMsg;
+    }
 }
