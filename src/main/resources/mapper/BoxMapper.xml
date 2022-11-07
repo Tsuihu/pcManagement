@@ -12,14 +12,25 @@
         from collector
     </select>
 
+
+
     <delete id="deleteBox">
         delete from box where boxId=#{boxId}
     </delete>
+
+
 
     <insert id="addBox" >
         insert into box values(null,#{boxCode},#{status},#{collectorId},#{transferId},#{testerId},
                                #{pointId},#{testOrganiationId},#{openTime},#{closeTime})
     </insert>
+    <select id="getCountByBoxcode" resultType="int">
+        select count(0)
+        from box
+        where boxCode=#{boxCode}
+    </select>
+
+
 
     <update id="updateBox">
         update box set boxCode=#{boxCode},status=#{status},collectorId=#{collectorId},transferId=#{transferId},testerId=#{testerId},

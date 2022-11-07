@@ -12,13 +12,24 @@
         from collector
     </select>
 
+
+
     <delete id="deleteCollector">
         delete from collector where collectorId=#{collectorId}
     </delete>
 
+
+
     <insert id="addCollector" >
         insert into collector values(null,#{tel},#{idcard},#{name},#{password},#{organizationId},#{registTime})
     </insert>
+    <select id="getCountByIdcard" resultType="int">
+        select count(0)
+        from collector
+        where idcard=#{idcard}
+    </select>
+
+
 
     <update id="updateCollector">
         update collector set tel=#{tel},idcard=#{idcard},name=#{name},password=#{password},organizationId=#{organizationId},registTime=#{registTime}

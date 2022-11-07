@@ -1,5 +1,6 @@
 package com.higher.pcmanagement.controller;
 
+import com.higher.pcmanagement.exception.BusinessException;
 import com.higher.pcmanagement.pojo.Box;
 import com.higher.pcmanagement.pojo.bo.PageRequestBo;
 import com.higher.pcmanagement.pojo.bo.PageResultBo;
@@ -20,24 +21,44 @@ public class BoxController {
     @Autowired
     BoxService boxService;
 
+    /**
+     * 分页查询
+     * @param pageRequestBo pageIndex：第几页，pageSize：每页多少条
+     * @return
+     */
     @PostMapping("/getPageBox.do")
     public ResultModel<PageResultBo<Box>> getPageBox(@RequestBody PageRequestBo pageRequestBo){
         PageResultBo<Box> box= boxService.getPageBox(pageRequestBo);
         return  new ResultModel<>(ResultCodeEnum.SUCCESS, box, "");
     }
 
+    /**
+     * 删除箱子
+     * @param box boxId:需要前端传递
+     * @return
+     */
     @PostMapping("/deleteBox.do")
     public ResultModel<Box> deleteBox(Box box){
         boxService.deleteBox(box.getBoxId());
         return  new ResultModel<>(ResultCodeEnum.SUCCESS, box, "");
     }
 
+    /**
+     * 添加箱子
+     * @param box，里面的所有参数都需要前端传递
+     * @return
+     */
     @PostMapping("/addBox.do")
-    public ResultModel<Box> addBox(@RequestBody Box box){
+    public ResultModel<Box> addBox(@RequestBody Box box) throws BusinessException {
         boxService.addBox(box);
         return  new ResultModel<>(ResultCodeEnum.SUCCESS, box, "");
     }
 
+    /**
+     * 修改箱子信息
+     * @param box,修改的参数都需要前端传递
+     * @return
+     */
     @PostMapping("/updateBox.do")
     public ResultModel<Box> updateBox(@RequestBody Box box){
         boxService.updateBox(box);

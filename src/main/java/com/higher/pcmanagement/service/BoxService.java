@@ -1,5 +1,6 @@
 package com.higher.pcmanagement.service;
 
+import com.higher.pcmanagement.exception.BusinessException;
 import com.higher.pcmanagement.pojo.Box;
 import com.higher.pcmanagement.pojo.bo.PageRequestBo;
 import com.higher.pcmanagement.pojo.bo.PageResultBo;
@@ -15,7 +16,7 @@ public interface BoxService {
 
     void deleteBox(Integer boxId);
 
-    void addBox(Box box);
+    void addBox(Box box) throws BusinessException;
 
     void updateBox(Box box);
 }

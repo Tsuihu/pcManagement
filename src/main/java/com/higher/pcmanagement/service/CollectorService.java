@@ -1,5 +1,6 @@
 package com.higher.pcmanagement.service;
 
+import com.higher.pcmanagement.exception.BusinessException;
 import com.higher.pcmanagement.pojo.Collector;
 import com.higher.pcmanagement.pojo.bo.PageRequestBo;
 import com.higher.pcmanagement.pojo.bo.PageResultBo;
@@ -15,7 +16,7 @@ public interface CollectorService {
 
     void deleteCollector(Integer collectorId);
 
-    void addCollector(Collector collector);
+    void addCollector(Collector collector) throws BusinessException;
 
     void updateCollector(Collector collector);
 }

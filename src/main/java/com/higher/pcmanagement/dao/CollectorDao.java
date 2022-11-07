@@ -16,6 +16,7 @@ public interface CollectorDao {
     void deleteCollector(@Param("collectorId") Integer collectorId);
 
     void addCollector(Collector collector);
+    int getCountByIdcard(@Param("idcard")String idcard);
 
     void updateCollector(Collector collector);
 }

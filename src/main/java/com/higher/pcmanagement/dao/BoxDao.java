@@ -16,6 +16,7 @@ public interface BoxDao {
     void deleteBox(@Param("boxId") Integer boxId);
 
     void addBox(Box box);
+    int getCountByBoxcode(@Param("boxCode")String boxCode);
 
     void updateBox(Box box);
 }
