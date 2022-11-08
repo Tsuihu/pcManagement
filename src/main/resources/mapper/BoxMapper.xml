@@ -3,8 +3,9 @@
 
 <mapper namespace="com.higher.pcmanagement.dao.BoxDao">
     <select id="getPageBox" resultType="com.higher.pcmanagement.pojo.Box">
-        select *
-        from box
+        SELECT b.boxCode,b.status,c.name,b.openTime,b.closeTime
+        FROM box b INNER JOIN collector c
+        ON c.collectorId=b.collectorId
         limit #{rowBegin},#{pageSize};
     </select>
     <select id="getPageBoxCount" resultType="Integer">
