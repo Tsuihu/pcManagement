@@ -2,9 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.higher.pcmanagement.dao.BoxDao">
-    <select id="getPageBox" resultType="com.higher.pcmanagement.pojo.Box">
-        select *
-        from box
+    <select id="getPageBox" resultType="com.higher.pcmanagement.pojo.bo.BoxRequestBo">
+        SELECT *
+        FROM box b INNER JOIN collector c
+        ON c.collectorId=b.collectorId
         limit #{rowBegin},#{pageSize};
     </select>
     <select id="getPageBoxCount" resultType="Integer">
@@ -24,6 +25,32 @@
         insert into box values(null,#{boxCode},#{status},#{collectorId},#{transferId},#{testerId},
                                #{pointId},#{testOrganiationId},#{openTime},#{closeTime})
     </insert>
+<!--通过名字获取人的id-->
+    <select id="getcollectorIdByname" resultType="int">
+        select collectorId
+        from collector
+        where name=#{name}
+    </select>
+<!--    查看人名的返回行数-->
+    <select id="getCountByname" resultType="int">
+        select count(0)
+        from collector
+        where name=#{name}
+    </select>
+<!--    通过地点名查看地点id-->
+    <select id="getpointIdByPointName" resultType="int">
+        select pointId
+        from point
+        where pointName=#{pointName}
+    </select>
+<!--    查看地点名的返回行数-->
+    <select id="getCountByPointName" resultType="int">
+        select count(0)
+        from point
+        where pointName=#{pointName}
+    </select>
+
+<!--查看转运箱编码的返回行数-->
     <select id="getCountByBoxcode" resultType="int">
         select count(0)
         from box
@@ -37,4 +64,15 @@
                        pointId=#{pointId},testOrganiationId=#{testOrganiationId},openTime=#{openTime},closeTime=#{closeTime}
         where boxId=#{boxId}
     </update>
+<!--    查看箱子状态-->
+    <select id="getStatusByboxCode" resultType="string">
+        select status
+        from box
+        where boxCode=#{boxCode}
+    </select>
+    <select id="getboxByBoxCode" resultType="com.higher.pcmanagement.pojo.Box">
+        select *
+        from box
+        where boxCode=#{boxCode}
+    </select>
 </mapper>

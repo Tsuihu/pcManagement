@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.higher.pcmanagement.dao.PeopleDao">
+    <select id="getAllPeople" resultType="com.higher.pcmanagement.pojo.bo.PeopleResultBo">
+        SELECT *
+        FROM people p INNER JOIN sample s  INNER JOIN testtube t
+        ON p.peopleId=s.peopleId AND s.testtubeId=t.testtubeId
+        limit #{rowBegin},#{pageSize};
+    </select>
+    <select id="getPagePeopleCount" resultType="Integer">
+        select count(0)
+        from people
+    </select>
+
+</mapper>
