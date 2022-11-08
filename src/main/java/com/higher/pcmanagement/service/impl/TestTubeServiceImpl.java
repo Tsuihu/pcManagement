@@ -67,8 +67,6 @@ public class TestTubeServiceImpl implements TestTubeService {
     public void updateTestTube(Testtube testtube) throws BusinessException {
 //        根据获取的id获取数据库中的信息
         Testtube tube = testTubeDao.getTubeById(testtube.getTesttubeId());
-//        获取数据库中的id
-        Integer testtubeId = tube.getTesttubeId();
 //        获取数据库中的状态
         Integer tubeStatus = tube.getStatus();
 //        获取输入的状态信息
@@ -82,9 +80,7 @@ public class TestTubeServiceImpl implements TestTubeService {
 //        获取输入框中编码的试管信息
         Testtube newtube = testTubeDao.getTubeByCode(testtube.getTesttubeCode());
         System.out.println(newtube);
-//        获取输入框中编码的试管id
-        Integer testtubeId1 = newtube.getTesttubeId();
-        if (testtubeId!=testtubeId1 && newtube!=null){
+        if (newtube!=null){
             throw new BusinessException("试管编码已存在，请重新输入", ResultCodeEnum.ERROR);
         }else {
 
@@ -94,14 +90,17 @@ public class TestTubeServiceImpl implements TestTubeService {
 //                两状态相通，开封管时间不变
                 testtube.setOpenTime(tube.getOpenTime());
                 testtube.setCloseTime(tube.getCloseTime());
+
                 testTubeDao.updateTestTube(testtube);
             } else if (tubeStatus != status && status==1) {
                 testtube.setOpenTime(tube.getOpenTime());
                 testtube.setCloseTime(new Date());
+
                 testTubeDao.updateTestTube(testtube);
             }else if (tubeStatus != status && status==0){
                 testtube.setOpenTime(tube.getOpenTime());
                 testtube.setCloseTime(null);
+
                 testTubeDao.updateTestTube(testtube);
             }
             else {
