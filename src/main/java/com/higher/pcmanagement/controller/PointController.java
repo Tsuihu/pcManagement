@@ -20,6 +20,7 @@ public class PointController {
     @Autowired
     PointService pointService;
 
+
     /**
      * 分页查询
      * @param model pageIndex：第几页，pageSize：每页多少条
@@ -28,6 +29,7 @@ public class PointController {
     @PostMapping("/getPage.do")//请求地址
     ResultModel<PageResultBo<Point>> getPagePointCount(@RequestBody PageRequestBo model){
         PageResultBo<Point> pagePoint = pointService.getPagePoint(model);
+
         return new ResultModel<>(ResultCodeEnum.SUCCESS,pagePoint,"分页查询成功");
     }
 
