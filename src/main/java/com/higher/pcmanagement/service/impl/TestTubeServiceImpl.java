@@ -67,6 +67,8 @@ public class TestTubeServiceImpl implements TestTubeService {
     public void updateTestTube(Testtube testtube) throws BusinessException {
 //        根据获取的id获取数据库中的信息
         Testtube tube = testTubeDao.getTubeById(testtube.getTesttubeId());
+//      获取数据库中的id
+        Integer testtubeId1 = tube.getTesttubeId();
 //        获取数据库中的状态
         Integer tubeStatus = tube.getStatus();
 //        获取输入的状态信息
@@ -80,8 +82,13 @@ public class TestTubeServiceImpl implements TestTubeService {
 //        获取输入框中编码的试管信息
         Testtube newtube = testTubeDao.getTubeByCode(testtube.getTesttubeCode());
         System.out.println(newtube);
-        if (newtube!=null){
-            throw new BusinessException("试管编码已存在，请重新输入", ResultCodeEnum.ERROR);
+//        Integer testtubeId = newtube.getTesttubeId();
+        if (newtube != null){
+            Integer testtubeId = newtube.getTesttubeId();
+            if (testtubeId!=testtubeId1){
+                throw new BusinessException("试管编码已存在，请重新输入", ResultCodeEnum.ERROR);
+            }
+
         }else {
 
 //        人数条不能大于试管类型
