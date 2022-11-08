@@ -27,7 +27,7 @@
 
 <!--分页查询-->
     <select id="getPageTube" resultType="com.higher.pcmanagement.pojo.bo.TesttubeBo">
-        SELECT t.testtubeCode,t.collectType,t.status,t.testResult,
+        SELECT t.testtubeId,t.testtubeCode,t.collectType,t.status,t.testResult,
                b.boxCode,t.openTime,t.closeTime
         FROM testtube t INNER JOIN box b
         ON t.boxId=b.boxId
