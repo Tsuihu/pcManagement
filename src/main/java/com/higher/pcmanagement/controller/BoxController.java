@@ -46,7 +46,7 @@ public class BoxController {
 
     /**
      * 添加箱子
-     * @param boxRequestBo，里面的所有参数都需要前端传递,包括检测人名字，检测地点名字
+     * @param boxRequestBo，里面的所有参数都需要前端传递,包括检测人名字，检测地点名字(boxId,name,pointName,status)
      * @return
      */
     @PostMapping("/addBox.do")
@@ -62,6 +62,9 @@ public class BoxController {
      */
     @PostMapping("/updateBox.do")
     public ResultModel<BoxRequestBo> updateBox(@RequestBody BoxRequestBo boxRequestBo) throws BusinessException {
+        boxRequestBo.setTesterId(1);
+        boxRequestBo.setTransferId(1);
+        boxRequestBo.setTestOrganiationId(1);
         boxService.updateBox(boxRequestBo);
         return  new ResultModel<>(ResultCodeEnum.SUCCESS, boxRequestBo, "");
     }

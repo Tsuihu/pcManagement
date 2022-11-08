@@ -70,9 +70,9 @@
         from box
         where boxCode=#{boxCode}
     </select>
-    <select id="getboxByBoxCode" resultType="com.higher.pcmanagement.pojo.Box">
+    <select id="getboxByBoxId" resultType="com.higher.pcmanagement.pojo.Box">
         select *
         from box
-        where boxCode=#{boxCode}
+        where boxId=#{boxId}
     </select>
 </mapper>

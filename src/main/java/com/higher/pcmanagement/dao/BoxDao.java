@@ -26,5 +26,5 @@ public interface BoxDao {
 
     void updateBox(Box box);
     String getStatusByboxCode(@Param("boxCode")String boxCode);
-    Box getboxByBoxCode(@Param("boxCode")String boxCode);
+    Box getboxByBoxId(@Param("boxId")Integer boxId);
 }
