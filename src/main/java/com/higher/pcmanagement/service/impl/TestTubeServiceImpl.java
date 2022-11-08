@@ -119,5 +119,6 @@ public class TestTubeServiceImpl implements TestTubeService {
     @Override
     public void deleteTube(Integer testtubeId) {
         testTubeDao.deleteTube(testtubeId);
+        testTubeDao.deleteSample(testtubeId);
     }
 }

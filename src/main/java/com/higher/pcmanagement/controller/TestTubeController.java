@@ -84,7 +84,7 @@ public class TestTubeController {
 
 
     /**
-     * 删除操作
+     * 删除操作,不仅删除testtube表中的信息,还会删除sample表中的信息,请谨慎删除
      * @param testtubeId
      * @return
      */

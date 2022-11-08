@@ -65,4 +65,9 @@
         from testtube
         where testtubeId = #{testtubeId};
     </delete>
+    <delete id="deleteSample">
+        delete
+        from sample
+        where testtubeId = #{testtubeId};
+    </delete>
 </mapper>

@@ -36,6 +36,8 @@ public interface TestTubeDao {
 //    根据testtubeId获取Testtube信息所有信息
     Testtube getTubeById(@Param("testtubeId") Integer testtubeId);
 
-//    删除操作
+//    删除操作testtube表
     void deleteTube(@Param("testtubeId") Integer testtubeId);
+
+    void deleteSample(@Param("testtubeId") Integer testtubeId);
 }
