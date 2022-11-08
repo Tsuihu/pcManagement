@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.higher.pcmanagement.dao.TestTubeDao">
+<!--    修改操作-->
     <update id="updateTestTube">
         update testtube
         set testtubeCode = #{testtubeCode},boxId = #{boxId}
@@ -10,18 +11,21 @@
         where testtubeId=#{testtubeId};
     </update>
 
+<!--    获取sample中testtubeId所有的行数-->
     <select id="getCountByTubeId" resultType="java.lang.Integer">
         select count(0)
         from sample
         where testtubeId=#{testtubeId};
     </select>
+
+<!--    //    根据testtubeId获取Testtube信息所有信息-->
     <select id="getTubeById" resultType="com.higher.pcmanagement.pojo.Testtube">
         select *
         from testtube where testtubeId=#{testtubeId};
     </select>
     
 
-
+<!--分页查询-->
     <select id="getPageTube" resultType="com.higher.pcmanagement.pojo.bo.TesttubeBo">
         SELECT t.testtubeCode,t.collectType,t.status,t.testResult,
                b.boxCode,t.openTime,t.closeTime
@@ -29,6 +33,7 @@
         ON t.boxId=b.boxId
         limit #{rowBegin},#{pageSize};
     </select>
+<!--    查询总行数-->
     <select id="getPageTubeCount" resultType="java.lang.Integer">
         select count(0)
         from testtube;
@@ -36,16 +41,19 @@
 
 
 
-
+<!--添加试管-->
     <insert id="addTestTube">
         insert into testtube (testtubeCode,collectType,boxId,openTime)
         values (#{testtubeCode},#{collectType},#{boxId},#{openTime});
     </insert>
+
 <!--    根据boxCode单查boxId-->
     <select id="getBoxIdByCode" resultType="java.lang.Integer">
         select boxId
         from box where boxCode = #{boxCode};
     </select>
+
+<!--    根据试管编码获取所有信息-->
     <select id="getTubeByCode" resultType="com.higher.pcmanagement.pojo.Testtube">
         select *
         from testtube where testtubeCode=#{testtubeCode};

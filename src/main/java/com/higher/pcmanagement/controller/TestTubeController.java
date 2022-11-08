@@ -30,6 +30,11 @@ public class TestTubeController {
     @Autowired
     TestTubeDao testTubeDao;
 
+    /**
+     * 分页查询
+     * @param model pageIndex   pageSize
+     * @return
+     */
     @PostMapping("getPage.do")
     ResultModel<PageResultBo<TesttubeBo>> getPageTube(@RequestBody PageRequestBo model){
         PageResultBo<TesttubeBo> pagePoint = testTubeService.getPageTube(model);
@@ -38,6 +43,12 @@ public class TestTubeController {
     }
 
 
+    /**
+     * 添加试管
+     * @param testtubeBo 参数:testtubeCode,collectType,boxCode
+     * @return
+     * @throws BusinessException
+     */
     @PostMapping("addTestTube.do")
     ResultModel<TesttubeBo> addTestTube(@RequestBody TesttubeBo testtubeBo) throws BusinessException {
         String boxCode = testtubeBo.getBoxCode();
@@ -50,6 +61,13 @@ public class TestTubeController {
         }
     }
 
+
+    /**
+     * 修改试管
+     * @param testtubeBo    testtubeCode,collectType,boxCode,status,testResult
+     * @return
+     * @throws BusinessException
+     */
     @PostMapping("updateTestTube.do")
     ResultModel<TesttubeBo> updateTestTube(@RequestBody TesttubeBo testtubeBo) throws BusinessException {
 
@@ -65,6 +83,11 @@ public class TestTubeController {
     }
 
 
+    /**
+     * 删除操作
+     * @param testtubeId
+     * @return
+     */
     @PostMapping("deleteTube.do")
     ResultModel<String> deleteTube(Integer testtubeId){
         testTubeService.deleteTube(testtubeId);

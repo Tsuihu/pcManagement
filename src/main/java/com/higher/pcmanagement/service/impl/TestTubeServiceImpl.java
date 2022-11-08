@@ -23,6 +23,11 @@ public class TestTubeServiceImpl implements TestTubeService {
     @Autowired
     TestTubeDao testTubeDao;
 
+    /**
+     * 分页查询
+     * @param model
+     * @return
+     */
     @Override
     public PageResultBo<TesttubeBo> getPageTube(PageRequestBo model) {
         if (model.getPageIndex()< 0){
@@ -34,6 +39,14 @@ public class TestTubeServiceImpl implements TestTubeService {
         return pageResultBo;
     }
 
+    /**
+     * 添加试管操作
+     * @param testtubeCode 试管编码
+     * @param collectType   采集种类
+     * @param boxId         试管Id
+     * @param openTime      开管时间
+     * @throws BusinessException
+     */
     @Override
     public void addTestTube(String testtubeCode, Integer collectType,
                             Integer boxId, Date openTime) throws BusinessException {
@@ -45,6 +58,11 @@ public class TestTubeServiceImpl implements TestTubeService {
         testTubeDao.addTestTube(testtubeCode,collectType,boxId,openTime);
     }
 
+    /**
+     * 修改试管信息
+     * @param testtube
+     * @throws BusinessException
+     */
     @Override
     public void updateTestTube(Testtube testtube) throws BusinessException {
 //        根据获取的id获取数据库中的信息

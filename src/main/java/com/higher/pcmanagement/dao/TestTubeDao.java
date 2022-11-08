@@ -22,7 +22,7 @@ public interface TestTubeDao {
     void addTestTube(@Param("testtubeCode") String testtubeCode, @Param("collectType")
                         Integer collectType, @Param("boxId")Integer boxId,@Param("openTime") Date openTime);
 
-    //根据获取到的testtubeCode判断试管是否存在
+    //根据获取到的testtubeCode判断试管是否存在,返回Testtube信息
     Testtube getTubeByCode(@Param("testtubeCode") String testtubeCode);
 
     //根据boxCode单查boxId
@@ -33,7 +33,9 @@ public interface TestTubeDao {
     //根据试管Id获取试管里的采集人数
     Integer getCountByTubeId(@Param("testtubeId") Integer testtubeId);
 
+//    根据testtubeId获取Testtube信息所有信息
     Testtube getTubeById(@Param("testtubeId") Integer testtubeId);
 
+//    删除操作
     void deleteTube(@Param("testtubeId") Integer testtubeId);
 }
