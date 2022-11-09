@@ -10,7 +10,7 @@
     </select>
 
     <select id="getTubeIdByTubeCode" resultType="int">
-        select testtubeId
+        select count(0)
         from testtube
         where testtubeCode=#{testtubeCode}
     </select>
