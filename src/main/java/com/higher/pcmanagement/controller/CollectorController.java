@@ -2,6 +2,7 @@ package com.higher.pcmanagement.controller;
 
 import com.higher.pcmanagement.exception.BusinessException;
 import com.higher.pcmanagement.pojo.Collector;
+import com.higher.pcmanagement.pojo.People;
 import com.higher.pcmanagement.pojo.bo.PageRequestBo;
 import com.higher.pcmanagement.pojo.bo.PageResultBo;
 import com.higher.pcmanagement.service.CollectorService;
@@ -30,7 +31,17 @@ public class CollectorController {
     @PostMapping("/getPageCollector.do")
     public ResultModel<PageResultBo<Collector>> getPageCollector(@RequestBody PageRequestBo pageRequestBo){
         PageResultBo<Collector> listCollector= collectorService.getPageCollector(pageRequestBo);
-        return  new ResultModel<>(ResultCodeEnum.SUCCESS, listCollector, "");
+        return  new ResultModel<>(ResultCodeEnum.SUCCESS, listCollector, "检测人员分页查询成功");
+    }
+
+    /**
+     * 全查人名
+     * @return
+     */
+    @PostMapping("/getAllName.do")
+    public ResultModel<List<People>> getAllName(){
+        List<People> listName= collectorService.getAllName();
+        return  new ResultModel<>(ResultCodeEnum.SUCCESS, listName, "全查人名成功");
     }
 
     /**
@@ -41,7 +52,7 @@ public class CollectorController {
     @PostMapping("/deleteCollector.do")
     public ResultModel<Collector> deleteCollector(Collector collector){
         collectorService.deleteCollector(collector.getCollectorId());
-        return  new ResultModel<>(ResultCodeEnum.SUCCESS, collector, "");
+        return  new ResultModel<>(ResultCodeEnum.SUCCESS, collector, "删除检测人员成功");
     }
 
     /**
@@ -53,7 +64,7 @@ public class CollectorController {
     public ResultModel<Collector> addCollector(@RequestBody Collector collector) throws BusinessException {
         collector.setRegistTime(new Date());
         collectorService.addCollector(collector);
-        return  new ResultModel<>(ResultCodeEnum.SUCCESS, collector, "");
+        return  new ResultModel<>(ResultCodeEnum.SUCCESS, collector, "添加检测人员成功");
     }
 
     /**
@@ -64,6 +75,6 @@ public class CollectorController {
     @PostMapping("/updateCollector.do")
     public ResultModel<Collector> updateCollector(@RequestBody Collector collector){
         collectorService.updateCollector(collector);
-        return new ResultModel<>(ResultCodeEnum.SUCCESS, collector, "");
+        return new ResultModel<>(ResultCodeEnum.SUCCESS, collector, "修改检测人员成功");
     }
 }

@@ -43,6 +43,14 @@ public class TestTubeController {
     }
 
 
+
+    @PostMapping("getAllTubeCode.do")
+    ResultModel<List<Testtube>> getAllTubeCode(){
+        List<Testtube> listTubeCode= testTubeService.getAllTubeCode();
+        return new ResultModel<>(ResultCodeEnum.SUCCESS,listTubeCode,"全查试管编码成功");
+    }
+
+
     /**
      * 添加试管
      * @param testtubeBo 参数:testtubeCode,collectType,boxCode

@@ -7,6 +7,8 @@ import com.higher.pcmanagement.pojo.bo.PageResultBo;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public interface PointService {
     //分页查询
@@ -20,4 +22,6 @@ public interface PointService {
 
 //    删除监测点
     void deletePoint(Integer pointId);
+
+    List<Point> getAllPointName();
 }

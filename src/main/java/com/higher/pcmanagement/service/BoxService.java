@@ -2,6 +2,8 @@ package com.higher.pcmanagement.service;
 
 import com.higher.pcmanagement.exception.BusinessException;
 import com.higher.pcmanagement.pojo.Box;
+import com.higher.pcmanagement.pojo.People;
+import com.higher.pcmanagement.pojo.Point;
 import com.higher.pcmanagement.pojo.bo.BoxRequestBo;
 import com.higher.pcmanagement.pojo.bo.PageRequestBo;
 import com.higher.pcmanagement.pojo.bo.PageResultBo;
@@ -20,4 +22,8 @@ public interface BoxService {
     void addBox(BoxRequestBo boxRequestBo) throws BusinessException;
 
     void updateBox(BoxRequestBo boxRequestBo) throws BusinessException;
+
+
+    List<Box> getAllBoxCode();
+
 }

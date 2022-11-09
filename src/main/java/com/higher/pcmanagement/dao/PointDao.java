@@ -12,6 +12,8 @@ public interface PointDao {
     //分页查询，
     List<Point> getPagePoint(PageRequestBo model);
 
+    List<Point> getAllPointName();
+
     //查询每页信息的行数
     Integer getPagePointCount();
 

@@ -2,6 +2,8 @@ package com.higher.pcmanagement.controller;
 
 import com.higher.pcmanagement.exception.BusinessException;
 import com.higher.pcmanagement.pojo.Box;
+import com.higher.pcmanagement.pojo.People;
+import com.higher.pcmanagement.pojo.Point;
 import com.higher.pcmanagement.pojo.bo.BoxRequestBo;
 import com.higher.pcmanagement.pojo.bo.PageRequestBo;
 import com.higher.pcmanagement.pojo.bo.PageResultBo;
@@ -32,6 +34,14 @@ public class BoxController {
         PageResultBo<BoxRequestBo> box= boxService.getPageBox(pageRequestBo);
         return  new ResultModel<>(ResultCodeEnum.SUCCESS, box, "分页查询成功");
     }
+
+    @PostMapping("/getAllBoxCode.do")
+    public ResultModel<List<Box>> getAllBoxCode(){
+        List<Box> listBoxCode=boxService.getAllBoxCode();
+        return  new ResultModel<>(ResultCodeEnum.SUCCESS, listBoxCode, "全查箱子编号成功");
+    }
+
+
 
     /**
      * 删除箱子

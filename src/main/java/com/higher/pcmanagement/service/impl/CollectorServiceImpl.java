@@ -3,6 +3,7 @@ package com.higher.pcmanagement.service.impl;
 import com.higher.pcmanagement.dao.CollectorDao;
 import com.higher.pcmanagement.exception.BusinessException;
 import com.higher.pcmanagement.pojo.Collector;
+import com.higher.pcmanagement.pojo.People;
 import com.higher.pcmanagement.pojo.Point;
 import com.higher.pcmanagement.pojo.bo.PageRequestBo;
 import com.higher.pcmanagement.pojo.bo.PageResultBo;
@@ -32,6 +33,12 @@ public class CollectorServiceImpl implements CollectorService {
         Integer count = collectorDao.getPageCollectorCount();
         PageResultBo<Collector> pageResultBo=new PageResultBo<>(list,count);
         return pageResultBo;
+    }
+
+    @Override
+    public List<People> getAllName() {
+        List<People> allName = collectorDao.getAllName();
+        return allName;
     }
 
     /**

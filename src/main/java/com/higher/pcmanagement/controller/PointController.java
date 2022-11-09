@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/point")
 public class PointController {
@@ -31,6 +33,12 @@ public class PointController {
         PageResultBo<Point> pagePoint = pointService.getPagePoint(model);
 
         return new ResultModel<>(ResultCodeEnum.SUCCESS,pagePoint,"分页查询成功");
+    }
+
+    @PostMapping("/getAllPointName.do")
+    public ResultModel<List<Point>> getAllPointName(){
+        List<Point> listPointName= pointService.getAllPointName();
+        return  new ResultModel<>(ResultCodeEnum.SUCCESS, listPointName, "全查地名成功");
     }
 
     /**

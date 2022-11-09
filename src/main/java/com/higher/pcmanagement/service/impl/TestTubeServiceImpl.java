@@ -124,6 +124,11 @@ public class TestTubeServiceImpl implements TestTubeService {
         testTubeDao.deleteTube(testtubeId);
         testTubeDao.deleteSample(testtubeId);
     }
+
+    @Override
+    public List<Testtube> getAllTubeCode() {
+        return testTubeDao.getAllTubeCode();
+    }
 }
 
 

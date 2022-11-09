@@ -9,6 +9,11 @@
         where pointId=#{pointId};
     </delete>
 
+    <select id="getAllPointName" resultType="com.higher.pcmanagement.pojo.Point">
+        select *
+        from point
+    </select>
+
     <update id="updatePoint">
         update point
         set pointName = #{pointName}

@@ -3,6 +3,7 @@ package com.higher.pcmanagement.service.impl;
 import com.higher.pcmanagement.dao.BoxDao;
 import com.higher.pcmanagement.exception.BusinessException;
 import com.higher.pcmanagement.pojo.Box;
+import com.higher.pcmanagement.pojo.People;
 import com.higher.pcmanagement.pojo.Point;
 import com.higher.pcmanagement.pojo.bo.BoxRequestBo;
 import com.higher.pcmanagement.pojo.bo.PageRequestBo;
@@ -116,5 +117,12 @@ public class BoxServiceImpl implements BoxService {
             }
         }
     }
+
+    @Override
+    public List<Box> getAllBoxCode() {
+        return boxDao.getAllBoxCode();
+    }
+
+
 }
 

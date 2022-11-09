@@ -13,6 +13,11 @@
     </select>
 
 
+    <select id="getAllName" resultType="com.higher.pcmanagement.pojo.People">
+        select *
+        from people
+    </select>
+
 
     <delete id="deleteCollector">
         delete from collector where collectorId=#{collectorId}

@@ -15,6 +15,8 @@ public interface TestTubeDao {
     //分页查询，TesttubeBo继承Testtube，添加了boxCode字段，方便展示
     List<TesttubeBo> getPageTube(PageRequestBo model);
 
+    List<Testtube> getAllTubeCode();
+
     //查询每页信息的行数
     Integer getPageTubeCount();
 

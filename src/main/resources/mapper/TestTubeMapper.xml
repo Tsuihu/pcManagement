@@ -11,6 +11,11 @@
         where testtubeId=#{testtubeId};
     </update>
 
+    <select id="getAllTubeCode" resultType="com.higher.pcmanagement.pojo.Testtube">
+        select *
+        from testtube
+    </select>
+
 <!--    获取sample中testtubeId所有的行数-->
     <select id="getCountByTubeId" resultType="java.lang.Integer">
         select count(0)

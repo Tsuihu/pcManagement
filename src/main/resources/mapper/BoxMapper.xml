@@ -14,6 +14,11 @@
     </select>
 
 
+    <select id="getAllBoxCode" resultType="com.higher.pcmanagement.pojo.Box">
+        select *
+        from box
+    </select>
+
 
     <delete id="deleteBox">
         delete from box where boxId=#{boxId}

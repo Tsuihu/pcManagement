@@ -1,6 +1,8 @@
 package com.higher.pcmanagement.dao;
 
 import com.higher.pcmanagement.pojo.Box;
+import com.higher.pcmanagement.pojo.People;
+import com.higher.pcmanagement.pojo.Point;
 import com.higher.pcmanagement.pojo.bo.BoxRequestBo;
 import com.higher.pcmanagement.pojo.bo.PageRequestBo;
 import org.apache.ibatis.annotations.Param;
@@ -13,6 +15,9 @@ import java.util.List;
 public interface BoxDao {
     List<BoxRequestBo> getPageBox(PageRequestBo pageRequestBo);
     Integer getPageBoxCount();
+
+
+    List<Box> getAllBoxCode();
 
     void deleteBox(@Param("boxId") Integer boxId);
 

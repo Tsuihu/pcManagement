@@ -31,7 +31,7 @@ public class PeopleController {
     @PostMapping("/getAllPeople.do")
     public ResultModel<PageResultBo<People>> getAllPeople(@RequestBody PageRequestBo pageRequestBo){
         PageResultBo<People> listPeople= peopleService.getAllPeople(pageRequestBo);
-        return  new ResultModel<>(ResultCodeEnum.SUCCESS, listPeople, "");
+        return  new ResultModel<>(ResultCodeEnum.SUCCESS, listPeople, "分页查询所有人信息成功");
     }
 
     /**
@@ -42,10 +42,9 @@ public class PeopleController {
      */
     @PostMapping("/addPeople.do")
     public ResultModel<People> addPeople(@RequestBody People people) throws BusinessException {
-        people.setIdcardType("0");
         people.setCreateTime(new Date());
         peopleService.addPeople(people);
-        return  new ResultModel<>(ResultCodeEnum.SUCCESS, people, "");
+        return  new ResultModel<>(ResultCodeEnum.SUCCESS, people, "添加人员信息成功");
     }
 
     /**
@@ -57,7 +56,7 @@ public class PeopleController {
     @PostMapping("/deletePeopleById.do")
     public ResultModel<People> deletePeopleById(People people) throws BusinessException {
         peopleService.deletePeopleById(people.getPeopleId());
-        return  new ResultModel<>(ResultCodeEnum.SUCCESS, people, "");
+        return  new ResultModel<>(ResultCodeEnum.SUCCESS, people, "删除人员信息成功");
     }
 
     /**
@@ -69,7 +68,7 @@ public class PeopleController {
     @PostMapping("/updatePeopleById.do")
     public ResultModel<People> updatePeopleById(@RequestBody People people) throws BusinessException {
         peopleService.updatePeopleById(people);
-        return  new ResultModel<>(ResultCodeEnum.SUCCESS, people, "");
+        return  new ResultModel<>(ResultCodeEnum.SUCCESS, people, "修改人员信息成功");
     }
 
 }

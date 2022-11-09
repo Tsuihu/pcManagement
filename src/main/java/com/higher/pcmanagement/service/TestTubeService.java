@@ -9,6 +9,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
+import java.util.List;
 
 @Component
 public interface TestTubeService {
@@ -24,4 +25,6 @@ public interface TestTubeService {
 
 //    删除试管
     void deleteTube(@Param("testtubeId") Integer testtubeId);
+
+    List<Testtube> getAllTubeCode();
 }

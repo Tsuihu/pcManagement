@@ -72,4 +72,9 @@ public class PointServiceImpl implements PointService {
     public void deletePoint(Integer pointId) {
         pointDao.deletePoint(pointId);
     }
+
+    @Override
+    public List<Point> getAllPointName() {
+        return pointDao.getAllPointName();
+    }
 }
