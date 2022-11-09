@@ -15,7 +15,6 @@
         where pointId=#{pointId};
     </update>
 
-
     <!--    根据检测名字查询改字段-->
     <select id="getPointByName" resultType="com.higher.pcmanagement.pojo.Point">
         select *

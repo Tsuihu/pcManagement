@@ -60,6 +60,7 @@ public class BoxServiceImpl implements BoxService {
                     boxRequestBo.setOpenTime(new Date());
                     boxRequestBo.setCollectorId(collectorId);
                     boxRequestBo.setPointId(pointId);
+                    boxRequestBo.setStatus("0");
                     boxDao.addBox(boxRequestBo);
                 }else {
                     throw new BusinessException("该检测地点不存在", ResultCodeEnum.ERROR);

@@ -30,7 +30,7 @@ public class BoxController {
     @PostMapping("/getPageBox.do")
     public ResultModel<PageResultBo<BoxRequestBo>> getPageBox(@RequestBody PageRequestBo pageRequestBo){
         PageResultBo<BoxRequestBo> box= boxService.getPageBox(pageRequestBo);
-        return  new ResultModel<>(ResultCodeEnum.SUCCESS, box, "");
+        return  new ResultModel<>(ResultCodeEnum.SUCCESS, box, "分页查询成功");
     }
 
     /**
@@ -41,7 +41,7 @@ public class BoxController {
     @PostMapping("/deleteBox.do")
     public ResultModel<Box> deleteBox(Box box){
         boxService.deleteBox(box.getBoxId());
-        return  new ResultModel<>(ResultCodeEnum.SUCCESS, box, "");
+        return  new ResultModel<>(ResultCodeEnum.SUCCESS, box, "删除成功");
     }
 
     /**
@@ -52,7 +52,7 @@ public class BoxController {
     @PostMapping("/addBox.do")
     public ResultModel<BoxRequestBo> addBox(@RequestBody BoxRequestBo boxRequestBo) throws BusinessException {
         boxService.addBox(boxRequestBo);
-        return  new ResultModel<>(ResultCodeEnum.SUCCESS, boxRequestBo, "");
+        return  new ResultModel<>(ResultCodeEnum.SUCCESS, boxRequestBo, "添加成功");
     }
 
     /**
@@ -66,6 +66,6 @@ public class BoxController {
         boxRequestBo.setTransferId(1);
         boxRequestBo.setTestOrganiationId(1);
         boxService.updateBox(boxRequestBo);
-        return  new ResultModel<>(ResultCodeEnum.SUCCESS, boxRequestBo, "");
+        return  new ResultModel<>(ResultCodeEnum.SUCCESS, boxRequestBo, "修改成功");
     }
 }
