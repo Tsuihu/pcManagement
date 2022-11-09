@@ -10,7 +10,7 @@
     </select>
     <select id="getPageBoxCount" resultType="Integer">
         select count(0)
-        from collector
+        from box
     </select>
 
 

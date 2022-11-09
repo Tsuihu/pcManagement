@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.higher.pcmanagement.dao.SampleDao">
+    <select id="getResultByPeopleId" resultType="com.higher.pcmanagement.pojo.bo.SampleResultBo">
+        SELECT *
+        FROM testtube t INNER JOIN sample s
+        ON t.testtubeId = s.testtubeId
+        WHERE peopleId=#{peopleId}
+    </select>
+
+    <select id="getTubeIdByTubeCode" resultType="int">
+        select testtubeId
+        from testtube
+        where testtubeCode=#{testtubeCode}
+    </select>
+    <select id="getCountByTubeCode" resultType="int">
+        select count(0)
+        from testtube
+        where testtubeCode=#{testtubeCode}
+    </select>
+
+    <insert id="addSample">
+        insert into sample values(null,#{peopleId},#{testtubeId},#{collectTime})
+    </insert>
+</mapper>
