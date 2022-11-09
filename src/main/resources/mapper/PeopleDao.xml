@@ -2,10 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.higher.pcmanagement.dao.PeopleDao">
-    <select id="getAllPeople" resultType="com.higher.pcmanagement.pojo.bo.PeopleResultBo">
+    <select id="getAllPeople" resultType="com.higher.pcmanagement.pojo.People">
         SELECT *
-        FROM people p INNER JOIN sample s  INNER JOIN testtube t
-        ON p.peopleId=s.peopleId AND s.testtubeId=t.testtubeId
+        FROM people
         limit #{rowBegin},#{pageSize};
     </select>
     <select id="getPagePeopleCount" resultType="Integer">
@@ -13,4 +12,31 @@
         from people
     </select>
 
+    <insert id="addPeople" >
+        insert into people values( null ,#{name},#{idcardType},#{idcard},#{tel},#{createTime})
+    </insert>
+
+    <delete id="deletePeopleById" >
+        delete from people where peopleId=#{peopleId}
+    </delete>
+
+    <update id="updatePeopleById">
+        update people set  name=#{name},idcard=#{idcard},tel=#{tel} where peopleId=#{peopleId}
+    </update>
+
+    <select id="getCountByIdcard" resultType="int">
+        select count(0)
+        from people
+        where idcard=#{idcard}
+    </select>
+    <select id="getCountBytel" resultType="int">
+        select count(0)
+        from people
+        where tel=#{tel}
+    </select>
+    <select id="getOneByPeopleId" resultType="com.higher.pcmanagement.pojo.People">
+        select *
+        from people
+        where peopleId=#{peopleId}
+    </select>
 </mapper>
