@@ -36,7 +36,7 @@ public class PeopleController {
 
     /**
      * 添加人员信息
-     * @param people name，idcard，tel
+     * @param people name，idcard，tel，idcardType
      * @return
      * @throws BusinessException
      */
