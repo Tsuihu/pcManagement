@@ -61,7 +61,7 @@ public class PeopleController {
 
     /**
      * 修改人员信息
-     * @param people peopleId，name，idcard，tel
+     * @param people peopleId，name，idcard，tel，（idcardType）
      * @return
      * @throws BusinessException
      */
