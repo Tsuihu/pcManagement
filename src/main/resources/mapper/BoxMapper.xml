@@ -4,8 +4,8 @@
 <mapper namespace="com.higher.pcmanagement.dao.BoxDao">
     <select id="getPageBox" resultType="com.higher.pcmanagement.pojo.bo.BoxRequestBo">
         SELECT *
-        FROM box b INNER JOIN collector c
-        ON c.collectorId=b.collectorId
+        FROM box b INNER JOIN collector c inner join point p
+        ON c.collectorId=b.collectorId and p.pointId=b.pointId
         limit #{rowBegin},#{pageSize};
     </select>
     <select id="getPageBoxCount" resultType="Integer">
