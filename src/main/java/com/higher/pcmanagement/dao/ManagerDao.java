@@ -18,6 +18,7 @@ public interface ManagerDao {
     public void addManager(Manager manager);
     // 检查手机号是否存在
     int checkManagerRepeat(String tel);
+    int checkManagerIdCard(@Param("idcard") String idcard);
 
 
     //分页查询，
@@ -30,5 +31,8 @@ public interface ManagerDao {
 
 
     List<Manager> getLikeNameIdCard(@Param("name") String name, @Param("idcard") String idcard);
+
+    void updateManager(@Param("managerId") Integer managerId,@Param("name") String name
+            , @Param("idcard") String idcard,@Param("tel") String tel,@Param("password") String password);
 
 }

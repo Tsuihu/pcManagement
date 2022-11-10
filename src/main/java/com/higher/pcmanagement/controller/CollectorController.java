@@ -6,6 +6,7 @@ import com.higher.pcmanagement.pojo.People;
 import com.higher.pcmanagement.pojo.bo.PageRequestBo;
 import com.higher.pcmanagement.pojo.bo.PageResultBo;
 import com.higher.pcmanagement.service.CollectorService;
+import com.higher.pcmanagement.util.MD5;
 import com.higher.pcmanagement.util.ResultCodeEnum;
 import com.higher.pcmanagement.util.ResultModel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,6 +63,11 @@ public class CollectorController {
      */
     @PostMapping("/addCollector.do")
     public ResultModel<Collector> addCollector(@RequestBody Collector collector) throws BusinessException {
+
+        String password = collector.getPassword();
+        String signKeyMd5 = MD5.encrypt(password);
+        collector.setPassword(signKeyMd5);
+
         collector.setRegistTime(new Date());
         collectorService.addCollector(collector);
         return  new ResultModel<>(ResultCodeEnum.SUCCESS, collector, "添加检测人员成功");
@@ -74,6 +80,12 @@ public class CollectorController {
      */
     @PostMapping("/updateCollector.do")
     public ResultModel<Collector> updateCollector(@RequestBody Collector collector){
+
+        //密码进行MD5加密后查询登录
+        String passwordMd5 = MD5.encrypt(collector.getPassword());
+        System.out.println(passwordMd5);
+        collector.setPassword(passwordMd5);
+
         collectorService.updateCollector(collector);
         return new ResultModel<>(ResultCodeEnum.SUCCESS, collector, "修改检测人员成功");
     }

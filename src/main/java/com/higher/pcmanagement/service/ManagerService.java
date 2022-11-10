@@ -23,4 +23,7 @@ public interface ManagerService {
     void deleteManager(Integer managerId);
 
     List<Manager> getLikeNameIdCard(String name,String idcard);
+
+
+    void updateManager(Integer managerId,String name,String idcard,String tel,String password) throws BusinessException;
 }

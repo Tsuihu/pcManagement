@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.higher.pcmanagement.dao.ManagerDao">
+
     <delete id="deleteManager">
         delete
         from manager
@@ -24,6 +25,10 @@
         select count(0) from manager where tel = #{tel}
     </select>
 
+    <select id="checkManagerIdCard" resultType="java.lang.Integer">
+        select count(0) from manager where idcard = #{idcard}
+    </select>
+
     <select id="getPageManager" resultType="com.higher.pcmanagement.pojo.Manager">
         select *
         from manager limit #{rowBegin},#{pageSize};
@@ -39,4 +44,12 @@
         FROM manager
         WHERE NAME LIKE CONCAT('%',#{name},'%') and idcard LIKE CONCAT('%',#{idcard},'%')
     </select>
+
+
+
+    <update id="updateManager">
+        update manager
+        set name = #{name},idcard= #{idcard}, password = #{password},  tel= #{tel}
+        where managerId=#{managerId};
+    </update>
 </mapper>
