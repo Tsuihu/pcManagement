@@ -81,7 +81,7 @@
         where boxId=#{boxId}
 
     </select>
-    <select id="getLikeCode" resultType="com.higher.pcmanagement.pojo.Box">
+    <select id="getLikeCode" resultType="com.higher.pcmanagement.pojo.bo.BoxRequestBo">
         SELECT *
         FROM box b INNER JOIN collector c INNER JOIN POINT p
         ON c.collectorId=b.collectorId AND p.pointId=b.pointId
