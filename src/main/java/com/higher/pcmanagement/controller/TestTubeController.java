@@ -102,9 +102,14 @@ public class TestTubeController {
         return new ResultModel<>(ResultCodeEnum.SUCCESS,"删除成功");
     }
 
+    /**
+     *
+     * @param testtubeCode
+     * @return
+     */
     @PostMapping("getLikeCode.do")
-    ResultModel<List<Testtube>> getLikeCode(String TesttubeCode){
-        List<Testtube> likeCode = testTubeService.getLikeCode(TesttubeCode);
+    ResultModel<List<Testtube>> getLikeCode(String testtubeCode){
+        List<Testtube> likeCode = testTubeService.getLikeCode(testtubeCode);
         return new ResultModel<>(ResultCodeEnum.SUCCESS,likeCode,"条件查询成功");
     }
 
