@@ -85,8 +85,8 @@ public class BoxController {
      * @return
      */
     @PostMapping("getLikeCode.do")
-    ResultModel<List<Box>> getLikeCode(String boxCode){
-        List<Box> likeCode = boxService.getLikeCode(boxCode);
+    ResultModel<List<BoxRequestBo>> getLikeCode(String boxCode){
+        List<BoxRequestBo> likeCode = boxService.getLikeCode(boxCode);
         return new ResultModel<>(ResultCodeEnum.SUCCESS,likeCode,"条件查询成功");
     }
 }

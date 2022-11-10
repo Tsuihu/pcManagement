@@ -28,6 +28,6 @@ public interface BoxService {
     List<Box> getAllBoxCode();
 
 
-    List<Box> getLikeCode(String boxCode);
+    List<BoxRequestBo> getLikeCode(String boxCode);
 
 }

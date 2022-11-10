@@ -43,6 +43,7 @@ public class PeopleController {
      */
     @PostMapping("/addPeople.do")
     public ResultModel<People> addPeople(@RequestBody People people) throws BusinessException {
+
         people.setCreateTime(new Date());
         peopleService.addPeople(people);
         return  new ResultModel<>(ResultCodeEnum.SUCCESS, people, "添加人员信息成功");

@@ -127,8 +127,8 @@ public class BoxServiceImpl implements BoxService {
     }
 
     @Override
-    public List<Box> getLikeCode(String boxCode) {
-        List<Box> likeCode = boxDao.getLikeCode(boxCode);
+    public List<BoxRequestBo> getLikeCode(String boxCode) {
+        List<BoxRequestBo> likeCode = boxDao.getLikeCode(boxCode);
         return likeCode;
     }
 

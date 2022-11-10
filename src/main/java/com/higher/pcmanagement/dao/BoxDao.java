@@ -34,5 +34,5 @@ public interface BoxDao {
     Box getboxByBoxId(@Param("boxId")Integer boxId);
 
 
-    List<Box> getLikeCode(@Param("boxCode")String boxCode);
+    List<BoxRequestBo> getLikeCode(@Param("boxCode")String boxCode);
 }
