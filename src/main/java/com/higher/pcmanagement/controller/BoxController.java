@@ -35,6 +35,10 @@ public class BoxController {
         return  new ResultModel<>(ResultCodeEnum.SUCCESS, box, "分页查询成功");
     }
 
+    /**
+     * 箱子编码的全查
+     * @return
+     */
     @PostMapping("/getAllBoxCode.do")
     public ResultModel<List<Box>> getAllBoxCode(){
         List<Box> listBoxCode=boxService.getAllBoxCode();

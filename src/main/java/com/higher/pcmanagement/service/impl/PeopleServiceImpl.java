@@ -33,40 +33,60 @@ public class PeopleServiceImpl implements PeopleService {
 //添加
     @Override
     public void addPeople(People people) throws BusinessException {
-        if (peopleDao.getCountByIdcard(people.getIdcard())==0){
-            if (peopleDao.getCountBytel(people.getTel())==0){
-                peopleDao.addPeople(people);
+        //        对身份证的长度进行一个长度要求，要求18位
+        if (people.getIdcard().length()==18){
+//            对手机后进行一个要求，要求11位
+            if (people.getTel().length()==11){
+                if (peopleDao.getCountByIdcard(people.getIdcard())==0){
+                        peopleDao.addPeople(people);
+                }else {
+                    throw new BusinessException("该身份证已存在，请重试", ResultCodeEnum.ERROR);
+                }
             }else {
-                throw new BusinessException("该手机号已存在，请重试", ResultCodeEnum.ERROR);
+                throw new BusinessException("请输入正确的手机号", ResultCodeEnum.ERROR);
             }
         }else {
-            throw new BusinessException("该身份证已存在，请重试", ResultCodeEnum.ERROR);
+            throw new BusinessException("请输入正确的身份证格式", ResultCodeEnum.ERROR);
         }
     }
+
 //删除
     @Override
     public void deletePeopleById(Integer peopleId) {
         peopleDao.deletePeopleById(peopleId);
     }
+
 //修改
     @Override
     public void updatePeopleById(People people) throws BusinessException {
 //        通过id查询未改之前的信息
         People peopleOne = peopleDao.getOneByPeopleId(people.getPeopleId());
-//         进行判断，如果未改之前的身份证与改之后的身份证一样。
-//         或者，未改之前的身份证与改之后的身份证不一样，并且，改制后的身份证再数据库中不存在，则进行修改，下面判断手机号同理
-        if (peopleOne.getIdcard().equals(people.getIdcard()) ||
-           (!peopleOne.getIdcard().equals(people.getIdcard()) && peopleDao.getCountByIdcard(people.getIdcard())==0)){
-            if (peopleOne.getTel().equals(people.getTel()) ||
-               (!peopleOne.getTel().equals(people.getTel()) && peopleDao.getCountBytel(people.getTel())==0) ){
+//        对身份证的长度进行一个长度要求，要求18位
+        if (people.getIdcard().length()==18){
+//            对手机后进行一个要求，要求11位
+            if (people.getTel().length()==11){
+//              进行判断，如果未改之前的身份证与改之后的身份证一样。
+//              或者，未改之前的身份证与改之后的身份证不一样，并且，改制后的身份证再数据库中不存在，则进行修改，下面判断手机号同理
+                if (peopleOne.getIdcard().equals(people.getIdcard()) ||
+                        (!peopleOne.getIdcard().equals(people.getIdcard()) && peopleDao.getCountByIdcard(people.getIdcard())==0)){
+//                    if (peopleOne.getTel().equals(people.getTel()) ||
+//                            (!peopleOne.getTel().equals(people.getTel()) && peopleDao.getCountBytel(people.getTel())==0) ){
 
-                peopleDao.updatePeopleById(people);
+                        peopleDao.updatePeopleById(people);
+
+//                    }else {
+//                        throw new BusinessException("该手机号已存在，请重试", ResultCodeEnum.ERROR);
+//                    }
+                }else {
+                    throw new BusinessException("该身份证已存在，请重试", ResultCodeEnum.ERROR);
+                }
             }else {
-                throw new BusinessException("该手机号已存在，请重试", ResultCodeEnum.ERROR);
+                throw new BusinessException("请输入正确的手机号", ResultCodeEnum.ERROR);
             }
         }else {
-            throw new BusinessException("该身份证已存在，请重试", ResultCodeEnum.ERROR);
+            throw new BusinessException("请输入正确的身份证格式", ResultCodeEnum.ERROR);
         }
+
     }
 
 

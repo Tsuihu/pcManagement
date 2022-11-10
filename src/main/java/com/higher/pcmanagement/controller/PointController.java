@@ -35,6 +35,10 @@ public class PointController {
         return new ResultModel<>(ResultCodeEnum.SUCCESS,pagePoint,"分页查询成功");
     }
 
+    /**
+     * 全查地点名字
+     * @return
+     */
     @PostMapping("/getAllPointName.do")
     public ResultModel<List<Point>> getAllPointName(){
         List<Point> listPointName= pointService.getAllPointName();
