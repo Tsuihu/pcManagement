@@ -40,4 +40,11 @@
         update collector set tel=#{tel},idcard=#{idcard},name=#{name},password=#{password},organizationId=#{organizationId},registTime=#{registTime}
         where collectorId=#{collectorId}
     </update>
+
+
+    <select id="getLikeNameIdCard" resultType="com.higher.pcmanagement.pojo.Collector">
+        SELECT *
+        FROM collector
+        WHERE NAME LIKE CONCAT('%',#{name},'%') and idcard LIKE CONCAT('%',#{idcard},'%')
+    </select>
 </mapper>

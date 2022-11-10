@@ -28,4 +28,12 @@ public interface PointDao {
 
 //    删除检测点
     void deletePoint(@Param("pointId") Integer pointId);
+
+    /**
+     * 模糊查询
+     * @param pointName
+     * @return
+     */
+    List<Point> getLikeName(@Param("pointName")String pointName);
+
 }

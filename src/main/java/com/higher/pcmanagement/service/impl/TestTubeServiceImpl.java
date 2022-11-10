@@ -2,6 +2,7 @@ package com.higher.pcmanagement.service.impl;
 
 import com.higher.pcmanagement.dao.TestTubeDao;
 import com.higher.pcmanagement.exception.BusinessException;
+import com.higher.pcmanagement.pojo.Box;
 import com.higher.pcmanagement.pojo.Testtube;
 import com.higher.pcmanagement.pojo.bo.PageRequestBo;
 import com.higher.pcmanagement.pojo.bo.PageResultBo;
@@ -50,11 +51,17 @@ public class TestTubeServiceImpl implements TestTubeService {
     public void addTestTube(String testtubeCode, Integer collectType,
                             Integer boxId, Date openTime) throws BusinessException {
         Testtube tube = testTubeDao.getTubeByCode(testtubeCode);
-        if (tube!=null){
-            throw new BusinessException("试管编码已存在，请重新输入", ResultCodeEnum.ERROR);
-        }
+        if (testtubeCode==null){
+            throw new BusinessException("没有输入试管编码，请重新输入", ResultCodeEnum.ERROR);
+    }
+        else {
 
-        testTubeDao.addTestTube(testtubeCode,collectType,boxId,openTime);
+            if (tube!=null){
+                throw new BusinessException("试管编码已存在，请重新输入", ResultCodeEnum.ERROR);
+            }
+            testTubeDao.addTestTube(testtubeCode,collectType,boxId,openTime);
+
+        }
     }
 
     /**
@@ -89,30 +96,34 @@ public class TestTubeServiceImpl implements TestTubeService {
                throw new BusinessException("试管编码已存在，请重新输入", ResultCodeEnum.ERROR);
             }
         }
+        if (testtube.getTesttubeCode()==""){
+            throw new BusinessException("没有输入试管编码，请重新输入", ResultCodeEnum.ERROR);
+        }
+        else {
 //        人数条不能大于试管类型
-        if (peopleCount<=collectType){
-            if (tubeStatus==status){
+            if (peopleCount <= collectType) {
+                if (tubeStatus == status) {
 //                两状态相通，开封管时间不变
-                testtube.setOpenTime(tube.getOpenTime());
-                testtube.setCloseTime(tube.getCloseTime());
+                    testtube.setOpenTime(tube.getOpenTime());
+                    testtube.setCloseTime(tube.getCloseTime());
 
-                testTubeDao.updateTestTube(testtube);
-            } else if (tubeStatus != status && status==1) {
-                testtube.setOpenTime(tube.getOpenTime());
-                testtube.setCloseTime(new Date());
+                    testTubeDao.updateTestTube(testtube);
+                } else if (tubeStatus != status && status == 1) {
+                    testtube.setOpenTime(tube.getOpenTime());
+                    testtube.setCloseTime(new Date());
 
-                testTubeDao.updateTestTube(testtube);
-            }else if (tubeStatus != status && status==0){
-                testtube.setOpenTime(tube.getOpenTime());
-                testtube.setCloseTime(null);
+                    testTubeDao.updateTestTube(testtube);
+                } else if (tubeStatus != status && status == 0) {
+                    testtube.setOpenTime(tube.getOpenTime());
+                    testtube.setCloseTime(null);
 
-                testTubeDao.updateTestTube(testtube);
+                    testTubeDao.updateTestTube(testtube);
+                } else {
+                    throw new BusinessException("状态输入错误，请输入0或者1", ResultCodeEnum.ERROR);
+                }
+            } else {
+                throw new BusinessException("试管中已采集" + peopleCount + "条信息，试管类型不能小于此数", ResultCodeEnum.ERROR);
             }
-            else {
-                throw new BusinessException("状态输入错误，请输入0或者1",ResultCodeEnum.ERROR);
-            }
-        }else {
-            throw new BusinessException("试管中已采集"+peopleCount+"条信息，试管类型不能小于此数",ResultCodeEnum.ERROR);
         }
 
     }
@@ -128,6 +139,12 @@ public class TestTubeServiceImpl implements TestTubeService {
     @Override
     public List<Testtube> getAllTubeCode() {
         return testTubeDao.getAllTubeCode();
+    }
+
+    @Override
+    public List<Testtube> getLikeCode(String testtubeCode) {
+        List<Testtube> likeCode = testTubeDao.getLikeCode(testtubeCode);
+        return likeCode;
     }
 }
 

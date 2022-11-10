@@ -79,5 +79,11 @@
         select *
         from box
         where boxId=#{boxId}
+
+    </select>
+    <select id="getLikeCode" resultType="com.higher.pcmanagement.pojo.Box">
+        select *
+        from box
+        where boxCode like concat('%',#{boxCode},'%')
     </select>
 </mapper>

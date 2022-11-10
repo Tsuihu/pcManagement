@@ -77,4 +77,16 @@ public class CollectorController {
         collectorService.updateCollector(collector);
         return new ResultModel<>(ResultCodeEnum.SUCCESS, collector, "修改检测人员成功");
     }
+
+
+    /**
+     * 根据name和idcard进行模糊查询
+     * @param collector  name和idcard
+     * @return
+     */
+    @PostMapping("getLikeNameIdCard.do")
+    ResultModel<List<Collector>> getLikeNameIdCard(@RequestBody Collector collector){
+        List<Collector> likeNameIdCard = collectorService.getLikeNameIdCard(collector.getName(), collector.getIdcard());
+        return new ResultModel<>(ResultCodeEnum.SUCCESS,likeNameIdCard,"条件查询成功");
+    }
 }

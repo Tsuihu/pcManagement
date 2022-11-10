@@ -70,4 +70,11 @@ public class CollectorServiceImpl implements CollectorService {
     public void updateCollector(Collector collector) {
         collectorDao.updateCollector(collector);
     }
+
+
+    @Override
+    public List<Collector> getLikeNameIdCard(String name, String idcard) {
+        List<Collector> likeNameIdCard = collectorDao.getLikeNameIdCard(name, idcard);
+        return likeNameIdCard;
+    }
 }

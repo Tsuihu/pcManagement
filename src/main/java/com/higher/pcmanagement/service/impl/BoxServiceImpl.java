@@ -54,6 +54,9 @@ public class BoxServiceImpl implements BoxService {
     @Override
     public void addBox(BoxRequestBo boxRequestBo) throws BusinessException {
         if (boxDao.getCountByBoxcode(boxRequestBo.getBoxCode())<1){
+            int countByname = boxDao.getCountByname(boxRequestBo.getName());
+            System.out.println(countByname);
+
             if(boxDao.getCountByname(boxRequestBo.getName())>=1){
                 if (boxDao.getCountByPointName(boxRequestBo.getPointName())>=1){
                     int collectorId = boxDao.getcollectorIdByname(boxRequestBo.getName());
@@ -121,6 +124,12 @@ public class BoxServiceImpl implements BoxService {
     @Override
     public List<Box> getAllBoxCode() {
         return boxDao.getAllBoxCode();
+    }
+
+    @Override
+    public List<Box> getLikeCode(String boxCode) {
+        List<Box> likeCode = boxDao.getLikeCode(boxCode);
+        return likeCode;
     }
 
 

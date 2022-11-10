@@ -1,6 +1,7 @@
 package com.higher.pcmanagement.dao;
 
 
+import com.higher.pcmanagement.pojo.Box;
 import com.higher.pcmanagement.pojo.Testtube;
 import com.higher.pcmanagement.pojo.bo.PageRequestBo;
 import com.higher.pcmanagement.pojo.bo.TesttubeBo;
@@ -42,4 +43,7 @@ public interface TestTubeDao {
     void deleteTube(@Param("testtubeId") Integer testtubeId);
 
     void deleteSample(@Param("testtubeId") Integer testtubeId);
+
+
+    List<Testtube> getLikeCode(@Param("testtubeCode")String testtubeCode);
 }

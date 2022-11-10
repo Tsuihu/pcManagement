@@ -78,4 +78,15 @@ public class BoxController {
         boxService.updateBox(boxRequestBo);
         return  new ResultModel<>(ResultCodeEnum.SUCCESS, boxRequestBo, "修改成功");
     }
+
+    /**
+     * 模糊查询
+     * @param boxCode ，根据编码模糊查询
+     * @return
+     */
+    @PostMapping("getLikeCode.do")
+    ResultModel<List<Box>> getLikeCode(String boxCode){
+        List<Box> likeCode = boxService.getLikeCode(boxCode);
+        return new ResultModel<>(ResultCodeEnum.SUCCESS,likeCode,"条件查询成功");
+    }
 }

@@ -27,4 +27,7 @@ public interface TestTubeService {
     void deleteTube(@Param("testtubeId") Integer testtubeId);
 
     List<Testtube> getAllTubeCode();
+
+
+    List<Testtube> getLikeCode(String testtubeCode);
 }

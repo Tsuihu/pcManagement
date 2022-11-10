@@ -7,6 +7,7 @@ import com.higher.pcmanagement.pojo.Point;
 import com.higher.pcmanagement.pojo.bo.BoxRequestBo;
 import com.higher.pcmanagement.pojo.bo.PageRequestBo;
 import com.higher.pcmanagement.pojo.bo.PageResultBo;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -25,5 +26,8 @@ public interface BoxService {
 
 
     List<Box> getAllBoxCode();
+
+
+    List<Box> getLikeCode(String boxCode);
 
 }

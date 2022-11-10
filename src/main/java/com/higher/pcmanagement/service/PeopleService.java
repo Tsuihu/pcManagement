@@ -6,7 +6,10 @@ import com.higher.pcmanagement.pojo.People;
 import com.higher.pcmanagement.pojo.bo.PageRequestBo;
 import com.higher.pcmanagement.pojo.bo.PageResultBo;
 import com.higher.pcmanagement.pojo.bo.PeopleResultBo;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 //@Service
 @Component
@@ -19,4 +22,7 @@ public interface PeopleService {
     void deletePeopleById(Integer peopleId);
 
     void updatePeopleById(People people) throws BusinessException;
+
+
+    List<People> getLikeNameIdCard(String name,String idcard);
 }

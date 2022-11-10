@@ -38,5 +38,11 @@
         select *
         from people
         where peopleId=#{peopleId}
+
+    </select>
+    <select id="getLikeNameIdCard" resultType="com.higher.pcmanagement.pojo.People">
+        SELECT *
+        FROM people
+        WHERE NAME LIKE CONCAT('%',#{name},'%') and idcard LIKE CONCAT('%',#{idcard},'%')
     </select>
 </mapper>

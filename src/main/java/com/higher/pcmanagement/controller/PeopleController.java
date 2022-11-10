@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
+import java.util.List;
 
 @RestController
 @RequestMapping("/people")
@@ -69,6 +70,18 @@ public class PeopleController {
     public ResultModel<People> updatePeopleById(@RequestBody People people) throws BusinessException {
         peopleService.updatePeopleById(people);
         return  new ResultModel<>(ResultCodeEnum.SUCCESS, people, "修改人员信息成功");
+    }
+
+
+    /**
+     * 根据name和idcard进行模糊查询
+     * @param people  name和idcard
+     * @return
+     */
+    @PostMapping("getLikeNameIdCard.do")
+    ResultModel<List<People>> getLikeNameIdCard(@RequestBody People people){
+        List<People> likeNameIdCard = peopleService.getLikeNameIdCard(people.getName(), people.getIdcard());
+        return new ResultModel<>(ResultCodeEnum.SUCCESS,likeNameIdCard,"条件查询成功");
     }
 
 }

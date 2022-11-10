@@ -1,6 +1,7 @@
 package com.higher.pcmanagement.dao;
 
 import com.higher.pcmanagement.pojo.Box;
+import com.higher.pcmanagement.pojo.Manager;
 import com.higher.pcmanagement.pojo.People;
 import com.higher.pcmanagement.pojo.bo.PageRequestBo;
 import com.higher.pcmanagement.pojo.bo.PeopleResultBo;
@@ -21,5 +22,8 @@ public interface PeopleDao {
     int getCountByIdcard(@Param("idcard") String idcard);
     int  getCountBytel(@Param("tel") String tel);
     People getOneByPeopleId(@Param("peopleId")Integer peopleId);
+
+
+    List<People> getLikeNameIdCard(@Param("name") String name, @Param("idcard") String idcard);
 
 }

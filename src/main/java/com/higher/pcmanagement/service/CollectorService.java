@@ -5,6 +5,7 @@ import com.higher.pcmanagement.pojo.Collector;
 import com.higher.pcmanagement.pojo.People;
 import com.higher.pcmanagement.pojo.bo.PageRequestBo;
 import com.higher.pcmanagement.pojo.bo.PageResultBo;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -22,4 +23,7 @@ public interface CollectorService {
     void addCollector(Collector collector) throws BusinessException;
 
     void updateCollector(Collector collector);
+
+
+    List<Collector> getLikeNameIdCard(String name,String idcard);
 }

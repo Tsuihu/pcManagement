@@ -2,6 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.higher.pcmanagement.dao.ManagerDao">
+    <delete id="deleteManager">
+        delete
+        from manager
+        where managerId=#{managerId};
+    </delete>
+
     <!--  登录：通过电话查询用户信息  -->
     <select id="getManagerByTel" resultType="com.higher.pcmanagement.pojo.Manager">
         select *
@@ -16,5 +22,21 @@
     <!--  检查电话是否存在  -->
     <select id="checkManagerRepeat" resultType="int">
         select count(0) from manager where tel = #{tel}
+    </select>
+
+    <select id="getPageManager" resultType="com.higher.pcmanagement.pojo.Manager">
+        select *
+        from manager limit #{rowBegin},#{pageSize};
+    </select>
+
+    <select id="getPageManagerCount" resultType="java.lang.Integer">
+        select count(0)
+        from manager;
+    </select>
+
+    <select id="getLikeNameIdCard" resultType="com.higher.pcmanagement.pojo.Manager">
+        SELECT *
+        FROM manager
+        WHERE NAME LIKE CONCAT('%',#{name},'%') and idcard LIKE CONCAT('%',#{idcard},'%')
     </select>
 </mapper>

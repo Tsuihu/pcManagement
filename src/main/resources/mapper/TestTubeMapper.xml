@@ -65,6 +65,7 @@
     </select>
 
 
+
     <delete id="deleteTube">
         delete
         from testtube
@@ -75,4 +76,11 @@
         from sample
         where testtubeId = #{testtubeId};
     </delete>
+
+
+    <select id="getLikeCode" resultType="com.higher.pcmanagement.pojo.Testtube">
+        select *
+        from testtube
+        where testtubeCode like concat('%',#{testtubeCode},'%')
+    </select>
 </mapper>

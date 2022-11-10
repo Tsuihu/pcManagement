@@ -46,10 +46,14 @@ public class PointServiceImpl implements PointService {
     public void addPoint( String pointName) throws BusinessException {
         Point point = pointDao.getPointByName(pointName);
 //        判断检测点是否已被添加过
+        if (pointName!=""){
         if (StringUtils.isEmpty(point)){
             pointDao.addPoint(pointName);
         }else {
             throw new BusinessException("该检测点已添加过", ResultCodeEnum.ERROR);
+        }
+    }else {
+            throw new BusinessException("没有添加检测点，请添加监测点", ResultCodeEnum.ERROR);
         }
 
     }
@@ -76,5 +80,11 @@ public class PointServiceImpl implements PointService {
     @Override
     public List<Point> getAllPointName() {
         return pointDao.getAllPointName();
+    }
+
+    @Override
+    public List<Point> getLikeName(String pointName) {
+        List<Point> points = pointDao.getLikeName(pointName);
+        return points;
     }
 }

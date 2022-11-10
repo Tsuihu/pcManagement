@@ -2,11 +2,17 @@ package com.higher.pcmanagement.service.impl;
 
 import com.higher.pcmanagement.dao.ManagerDao;
 import com.higher.pcmanagement.exception.BusinessException;
+import com.higher.pcmanagement.pojo.Collector;
 import com.higher.pcmanagement.pojo.Manager;
+import com.higher.pcmanagement.pojo.Point;
+import com.higher.pcmanagement.pojo.bo.PageRequestBo;
+import com.higher.pcmanagement.pojo.bo.PageResultBo;
 import com.higher.pcmanagement.service.ManagerService;
 import com.higher.pcmanagement.util.ResultCodeEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 //@Service
 @Component
@@ -45,5 +51,27 @@ public class ManagerServiceImpl implements ManagerService {
         }else {
             managerDao.addManager(manager);
         }
+    }
+
+    @Override
+    public PageResultBo<Manager> getPageManager(PageRequestBo model) {
+        if (model.getPageIndex()< 0){
+            model.setPageIndex(0);
+        }
+        List<Manager> list = managerDao.getPageManager(model);
+        Integer count = managerDao.getPageManagerCount();
+        PageResultBo<Manager> pageResultBo=new PageResultBo<>(list,count);
+        return pageResultBo;
+    }
+
+    @Override
+    public void deleteManager(Integer managerId) {
+        managerDao.deleteManager(managerId);
+    }
+
+    @Override
+    public List<Manager> getLikeNameIdCard(String name, String idcard) {
+        List<Manager> likeNameIdCard = managerDao.getLikeNameIdCard(name, idcard);
+        return likeNameIdCard;
     }
 }

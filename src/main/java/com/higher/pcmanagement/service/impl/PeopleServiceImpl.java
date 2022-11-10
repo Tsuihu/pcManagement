@@ -3,6 +3,7 @@ package com.higher.pcmanagement.service.impl;
 import com.higher.pcmanagement.dao.PeopleDao;
 import com.higher.pcmanagement.exception.BusinessException;
 import com.higher.pcmanagement.pojo.Collector;
+import com.higher.pcmanagement.pojo.Manager;
 import com.higher.pcmanagement.pojo.People;
 import com.higher.pcmanagement.pojo.bo.PageRequestBo;
 import com.higher.pcmanagement.pojo.bo.PageResultBo;
@@ -66,5 +67,12 @@ public class PeopleServiceImpl implements PeopleService {
         }else {
             throw new BusinessException("该身份证已存在，请重试", ResultCodeEnum.ERROR);
         }
+    }
+
+
+    @Override
+    public List<People> getLikeNameIdCard(String name, String idcard) {
+        List<People> likeNameIdCard = peopleDao.getLikeNameIdCard(name, idcard);
+        return likeNameIdCard;
     }
 }

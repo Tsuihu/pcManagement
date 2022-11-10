@@ -24,4 +24,8 @@ public interface PointService {
     void deletePoint(Integer pointId);
 
     List<Point> getAllPointName();
+
+    //模糊查询
+    List<Point> getLikeName(String pointName);
+
 }

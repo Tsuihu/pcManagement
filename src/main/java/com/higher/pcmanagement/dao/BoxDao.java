@@ -32,4 +32,7 @@ public interface BoxDao {
     void updateBox(Box box);
     String getStatusByboxCode(@Param("boxCode")String boxCode);
     Box getboxByBoxId(@Param("boxId")Integer boxId);
+
+
+    List<Box> getLikeCode(@Param("boxCode")String boxCode);
 }

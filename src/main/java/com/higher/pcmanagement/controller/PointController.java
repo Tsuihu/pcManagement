@@ -74,4 +74,19 @@ public class PointController {
         pointService.deletePoint(pointId);
         return new ResultModel<>(ResultCodeEnum.SUCCESS,"信息删除成功");
     }
+
+
+
+    /**
+     * 模糊查询
+     * @param point
+     * @return
+     * @throws BusinessException
+     */
+    @PostMapping("/getLikeName.do")
+    ResultModel<List<Point>> getLikeName(@RequestBody Point point) throws BusinessException {
+
+        List<Point> name= pointService.getLikeName(point.getPointName());
+        return new ResultModel<>(ResultCodeEnum.SUCCESS,name,"");
+    }
 }

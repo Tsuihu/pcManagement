@@ -42,4 +42,11 @@
         from point;
     </select>
 
+    <!--    通过地点名字进行模糊查询-->
+    <select id="getLikeName" resultType="com.higher.pcmanagement.pojo.Point">
+        select pointId,pointName
+        from point
+        where pointName like concat('%',#{pointName},'%')
+    </select>
+
 </mapper>
