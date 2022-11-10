@@ -91,7 +91,7 @@ public class ManagerController {
 
 
     @PostMapping("updateManager.do")
-    ResultModel<Manager> updateManager(Manager manager) throws BusinessException {
+    ResultModel<Manager> updateManager(@RequestBody Manager manager) throws BusinessException {
         String password = MD5.encrypt(manager.getPassword());
 
         managerService.updateManager(manager.getManagerId(), manager.getName(),
