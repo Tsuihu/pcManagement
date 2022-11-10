@@ -10,7 +10,7 @@ import java.util.List;
 @Component
 public interface SampleService {
 
-    List<SampleResultBo> getResultByPeopleId(Integer peopleId);
+    List<SampleResultBo> getResultByPeopleId(Integer peopleId) throws BusinessException;
 
     void addSample(SampleResultBo sampleResultBo) throws BusinessException;
 }

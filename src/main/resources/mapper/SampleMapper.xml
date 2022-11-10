@@ -10,7 +10,7 @@
     </select>
 
     <select id="getTubeIdByTubeCode" resultType="int">
-        select count(0)
+        select testtubeId
         from testtube
         where testtubeCode=#{testtubeCode}
     </select>
@@ -20,7 +20,30 @@
         where testtubeCode=#{testtubeCode}
     </select>
 
+    <select id="getCountByPeopleId" resultType="int">
+        select count(0)
+        from sample
+        where peopleId=#{peopleId}
+    </select>
+
     <insert id="addSample">
         insert into sample values(null,#{peopleId},#{testtubeId},#{collectTime})
     </insert>
+    
+    <select id="getStatusByTubeId" resultType="int">
+        select status
+        from testtube
+        where testtubeId=#{testtubeId}
+    </select>
+    <select id="getTypeByTubeId" resultType="int">
+        select collectType
+        from testtube
+        where testtubeId=#{testtubeId}
+    </select>
+<!--    查看sample表中试管id的返回行数-->
+    <select id="getCountByTubeId" resultType="int">
+        select count(0)
+        from sample
+        where testtubeId=#{testtubeId}
+    </select>
 </mapper>

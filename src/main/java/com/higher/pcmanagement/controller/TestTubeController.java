@@ -42,8 +42,10 @@ public class TestTubeController {
         return new ResultModel<>(ResultCodeEnum.SUCCESS,pagePoint,"分页查询成功");
     }
 
-
-
+    /**
+     * 全查试管的编码
+     * @return
+     */
     @PostMapping("getAllTubeCode.do")
     ResultModel<List<Testtube>> getAllTubeCode(){
         List<Testtube> listTubeCode= testTubeService.getAllTubeCode();
