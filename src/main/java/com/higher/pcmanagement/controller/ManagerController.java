@@ -88,4 +88,17 @@ public class ManagerController {
         List<Manager> likeNameIdCard = managerService.getLikeNameIdCard(manager.getName(), manager.getIdcard());
         return new ResultModel<>(ResultCodeEnum.SUCCESS,likeNameIdCard,"条件查询成功");
     }
+
+
+    @PostMapping("updateManager.do")
+    ResultModel<Manager> updateManager(Manager manager) throws BusinessException {
+        String password = MD5.encrypt(manager.getPassword());
+
+        managerService.updateManager(manager.getManagerId(), manager.getName(),
+                        manager.getIdcard(), manager.getTel(), password);
+        return new ResultModel<>(ResultCodeEnum.SUCCESS,"修改信息成功");
+    }
+
+
+
 }
