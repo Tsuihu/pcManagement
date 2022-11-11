@@ -74,7 +74,7 @@ public class ManagerController {
     ResultModel<PageResultBo<Manager>> getPageManager(@RequestBody PageRequestBo model){
         PageResultBo<Manager> pageManager = managerService.getPageManager(model);
 
-        return new ResultModel<>(ResultCodeEnum.SUCCESS,pageManager,"分页查询成功");
+        return new ResultModel<>(ResultCodeEnum.SUCCESS,pageManager,"管理人员分页查询成功");
     }
 
 
