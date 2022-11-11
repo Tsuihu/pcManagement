@@ -24,6 +24,6 @@ public interface PeopleDao {
     People getOneByPeopleId(@Param("peopleId")Integer peopleId);
 
 
-    List<People> getLikeNameIdCard(@Param("name") String name, @Param("idcard") String idcard);
+    List<People> getLikeNameIdCard(@Param("name") String name);
 
 }

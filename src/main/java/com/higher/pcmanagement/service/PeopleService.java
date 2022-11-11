@@ -24,5 +24,5 @@ public interface PeopleService {
     void updatePeopleById(People people) throws BusinessException;
 
 
-    List<People> getLikeNameIdCard(String name,String idcard);
+    List<People> getLikeNameIdCard(String name);
 }

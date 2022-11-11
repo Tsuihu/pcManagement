@@ -81,7 +81,7 @@ public class PeopleController {
      */
     @PostMapping("getLikeNameIdCard.do")
     ResultModel<List<People>> getLikeNameIdCard(@RequestBody People people){
-        List<People> likeNameIdCard = peopleService.getLikeNameIdCard(people.getName(), people.getIdcard());
+        List<People> likeNameIdCard = peopleService.getLikeNameIdCard(people.getName());
         return new ResultModel<>(ResultCodeEnum.SUCCESS,likeNameIdCard,"条件查询成功");
     }
 

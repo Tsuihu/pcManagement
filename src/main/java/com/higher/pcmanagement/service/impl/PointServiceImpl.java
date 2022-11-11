@@ -68,7 +68,7 @@ public class PointServiceImpl implements PointService {
         Point point = pointDao.getPointByName(pointName);
 
         if (pointName!=""){
-            if (StringUtils.isEmpty(point)){
+            if (StringUtils.isEmpty(point) || pointName==point.getPointName()){
                 pointDao.updatePoint(pointId,pointName);
             }else {
                 throw new BusinessException("该检测点已添加过", ResultCodeEnum.ERROR);

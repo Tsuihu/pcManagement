@@ -98,7 +98,7 @@ public class CollectorController {
      */
     @PostMapping("getLikeNameIdCard.do")
     ResultModel<List<Collector>> getLikeNameIdCard(@RequestBody Collector collector){
-        List<Collector> likeNameIdCard = collectorService.getLikeNameIdCard(collector.getName(), collector.getIdcard());
+        List<Collector> likeNameIdCard = collectorService.getLikeNameIdCard(collector.getName());
         return new ResultModel<>(ResultCodeEnum.SUCCESS,likeNameIdCard,"条件查询成功");
     }
 }

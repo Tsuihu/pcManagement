@@ -92,7 +92,7 @@ public class ManagerController {
      */
     @PostMapping("getLikeNameIdCard.do")
     ResultModel<List<Manager>> getLikeNameIdCard(@RequestBody Manager manager){
-        List<Manager> likeNameIdCard = managerService.getLikeNameIdCard(manager.getName(), manager.getIdcard());
+        List<Manager> likeNameIdCard = managerService.getLikeNameIdCard(manager.getName());
         return new ResultModel<>(ResultCodeEnum.SUCCESS,likeNameIdCard,"条件查询成功");
     }
 

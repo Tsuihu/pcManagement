@@ -75,8 +75,8 @@ public class ManagerServiceImpl implements ManagerService {
     }
 
     @Override
-    public List<Manager> getLikeNameIdCard(String name, String idcard) {
-        List<Manager> likeNameIdCard = managerDao.getLikeNameIdCard(name, idcard);
+    public List<Manager> getLikeNameIdCard(String name) {
+        List<Manager> likeNameIdCard = managerDao.getLikeNameIdCard(name);
         return likeNameIdCard;
     }
 

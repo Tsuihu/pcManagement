@@ -25,5 +25,5 @@ public interface CollectorService {
     void updateCollector(Collector collector);
 
 
-    List<Collector> getLikeNameIdCard(String name,String idcard);
+    List<Collector> getLikeNameIdCard(String name);
 }

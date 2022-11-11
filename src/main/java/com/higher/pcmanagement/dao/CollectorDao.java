@@ -24,5 +24,5 @@ public interface CollectorDao {
 
     void updateCollector(Collector collector);
 
-    List<Collector> getLikeNameIdCard(@Param("name") String name,@Param("idcard") String idcard);
+    List<Collector> getLikeNameIdCard(@Param("name") String name);
 }

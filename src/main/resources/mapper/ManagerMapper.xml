@@ -42,7 +42,7 @@
     <select id="getLikeNameIdCard" resultType="com.higher.pcmanagement.pojo.Manager">
         SELECT *
         FROM manager
-        WHERE NAME LIKE CONCAT('%',#{name},'%') and idcard LIKE CONCAT('%',#{idcard},'%')
+        WHERE NAME LIKE CONCAT('%',#{name},'%')
     </select>
 
 

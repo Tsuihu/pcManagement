@@ -30,7 +30,7 @@ public interface ManagerDao {
     void deleteManager(@Param("managerId") Integer managerId);
 
 
-    List<Manager> getLikeNameIdCard(@Param("name") String name, @Param("idcard") String idcard);
+    List<Manager> getLikeNameIdCard(@Param("name") String name);
 
     void updateManager(@Param("managerId") Integer managerId,@Param("name") String name
             , @Param("idcard") String idcard,@Param("tel") String tel,@Param("password") String password);

@@ -73,8 +73,8 @@ public class CollectorServiceImpl implements CollectorService {
 
 
     @Override
-    public List<Collector> getLikeNameIdCard(String name, String idcard) {
-        List<Collector> likeNameIdCard = collectorDao.getLikeNameIdCard(name, idcard);
+    public List<Collector> getLikeNameIdCard(String name) {
+        List<Collector> likeNameIdCard = collectorDao.getLikeNameIdCard(name);
         return likeNameIdCard;
     }
 }

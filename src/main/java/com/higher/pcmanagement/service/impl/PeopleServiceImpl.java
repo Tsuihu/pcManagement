@@ -91,8 +91,8 @@ public class PeopleServiceImpl implements PeopleService {
 
 
     @Override
-    public List<People> getLikeNameIdCard(String name, String idcard) {
-        List<People> likeNameIdCard = peopleDao.getLikeNameIdCard(name, idcard);
+    public List<People> getLikeNameIdCard(String name) {
+        List<People> likeNameIdCard = peopleDao.getLikeNameIdCard(name);
         return likeNameIdCard;
     }
 }
