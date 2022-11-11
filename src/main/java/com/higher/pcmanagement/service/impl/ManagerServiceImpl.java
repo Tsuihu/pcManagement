@@ -46,10 +46,15 @@ public class ManagerServiceImpl implements ManagerService {
      */
     @Override
     public void addManager(Manager manager) throws BusinessException {
-        if(managerDao.checkManagerRepeat(manager.getTel()) > 0) {
-            throw new BusinessException("手机号已存在",ResultCodeEnum.ERROR);
+
+        if(managerDao.checkManagerIdCard(manager.getIdcard()) > 0) {
+            throw new BusinessException("身份证已存在",ResultCodeEnum.ERROR);
         }else {
-            managerDao.addManager(manager);
+            if (managerDao.checkManagerRepeat(manager.getTel()) > 0) {
+                throw new BusinessException("电话号码已存在", ResultCodeEnum.ERROR);
+            } else {
+                managerDao.addManager(manager);
+            }
         }
     }
 

@@ -63,7 +63,7 @@ public class PointController {
      * @return
      */
     @PostMapping("updatePoint.do")
-    ResultModel<Point> updatePoint(@RequestBody Point point){
+    ResultModel<Point> updatePoint(@RequestBody Point point) throws BusinessException {
         pointService.updatePoint(point.getPointId(), point.getPointName());
         return new ResultModel<>(ResultCodeEnum.SUCCESS,point,"修改信息成功");
     }

@@ -18,7 +18,7 @@ public interface PointService {
     void addPoint(String pointName) throws BusinessException;
 
 //    修改检测点
-    void updatePoint(Integer pointId,String pointName);
+    void updatePoint(Integer pointId,String pointName) throws BusinessException;
 
 //    删除监测点
     void deletePoint(Integer pointId);

@@ -64,8 +64,19 @@ public class PointServiceImpl implements PointService {
      * @param pointName
      */
     @Override
-    public void updatePoint(Integer pointId,String pointName) {
-        pointDao.updatePoint(pointId,pointName);
+    public void updatePoint(Integer pointId,String pointName) throws BusinessException {
+        Point point = pointDao.getPointByName(pointName);
+
+        if (pointName!=""){
+            if (StringUtils.isEmpty(point)){
+                pointDao.updatePoint(pointId,pointName);
+            }else {
+                throw new BusinessException("该检测点已添加过", ResultCodeEnum.ERROR);
+            }
+        }else {
+            throw new BusinessException("没有添加检测点，请添加监测点", ResultCodeEnum.ERROR);
+        }
+
     }
 
     /**

@@ -52,10 +52,17 @@ public class ManagerController {
     @PostMapping("registe.do")
     public ResultModel<Manager> registe(@RequestBody Manager manager) throws BusinessException {
 
+        String idcard = manager.getIdcard();
+
+        if (idcard.length()!=18){
+            throw new BusinessException("身份证长度不正确，请重新输入",ResultCodeEnum.ERROR);
+        }
+
         //MD5加密
         String password = manager.getPassword();
         String signKeyMd5 = MD5.encrypt(password);
         manager.setPassword(signKeyMd5);
+
 
         manager.setRegistTime(new Date());
         managerService.addManager(manager);
