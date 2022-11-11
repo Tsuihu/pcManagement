@@ -22,7 +22,7 @@ public interface CollectorService {
 
     void addCollector(Collector collector) throws BusinessException;
 
-    void updateCollector(Collector collector);
+    void updateCollector(Collector collector) throws BusinessException;
 
 
     List<Collector> getLikeNameIdCard(String name);

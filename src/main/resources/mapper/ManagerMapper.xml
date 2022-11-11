@@ -44,7 +44,10 @@
         FROM manager
         WHERE NAME LIKE CONCAT('%',#{name},'%')
     </select>
-
+    <select id="getManagerIdCard" resultType="com.higher.pcmanagement.pojo.Manager">
+        select *
+        from manager where idcard=#{idcard};
+    </select>
 
 
     <update id="updateManager">

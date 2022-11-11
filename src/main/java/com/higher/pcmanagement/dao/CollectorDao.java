@@ -1,6 +1,7 @@
 package com.higher.pcmanagement.dao;
 
 import com.higher.pcmanagement.pojo.Collector;
+import com.higher.pcmanagement.pojo.Manager;
 import com.higher.pcmanagement.pojo.People;
 import com.higher.pcmanagement.pojo.Point;
 import com.higher.pcmanagement.pojo.bo.PageRequestBo;
@@ -25,4 +26,9 @@ public interface CollectorDao {
     void updateCollector(Collector collector);
 
     List<Collector> getLikeNameIdCard(@Param("name") String name);
+
+
+    Collector getCollectorIdCard(@Param("idcard") String idcard);
+
+    int checkCollectorIdCard(@Param("idcard") String idcard);
 }
