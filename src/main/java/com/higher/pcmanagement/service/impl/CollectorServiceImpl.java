@@ -69,24 +69,14 @@ public class CollectorServiceImpl implements CollectorService {
      */
     @Override
     public void updateCollector(Collector collector) throws BusinessException {
-
-        System.out.println(collector.getIdcard());
-        if(collectorDao.checkCollectorIdCard(collector.getIdcard()) > 0) {
-            Collector collector1 = collectorDao.getCollectorIdCard(collector.getIdcard());
-            String idcard1 = collector1.getIdcard();
-            System.out.println(idcard1);
-            if (!idcard1.equals(collector.getIdcard())){
-                throw new BusinessException("身份证已存在",ResultCodeEnum.ERROR);
-            }
-        }
-            collectorDao.updateCollector(collector);
-
-
-
-
+        collectorDao.updateCollector(collector);
     }
 
-
+    /**
+     * 根据姓名查询采集人信息
+     * @param name
+     * @return
+     */
     @Override
     public List<Collector> getLikeNameIdCard(String name) {
         List<Collector> likeNameIdCard = collectorDao.getLikeNameIdCard(name);

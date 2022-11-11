@@ -74,25 +74,28 @@ public class ManagerServiceImpl implements ManagerService {
         managerDao.deleteManager(managerId);
     }
 
+    /**
+     * 根据管理员名字查询信息
+     * @param name
+     * @return
+     */
     @Override
     public List<Manager> getLikeNameIdCard(String name) {
         List<Manager> likeNameIdCard = managerDao.getLikeNameIdCard(name);
         return likeNameIdCard;
     }
 
+    /**
+     * 修改管理员信息
+     * @param managerId
+     * @param name
+     * @param idcard
+     * @param tel
+     * @param password
+     * @throws BusinessException
+     */
     @Override
     public void updateManager(Integer managerId, String name, String idcard, String tel, String password) throws BusinessException {
-
-        System.out.println(idcard);
-        if(managerDao.checkManagerIdCard(idcard) > 0) {
-            Manager manager = managerDao.getManagerIdCard(idcard);
-            String idcard1 = manager.getIdcard();
-            System.out.println(idcard1);
-            if (!idcard1.equals(idcard)){
-                throw new BusinessException("身份证已存在",ResultCodeEnum.ERROR);
-            }
-        }
             managerDao.updateManager(managerId,name,idcard,tel,password);
-
     }
 }
