@@ -19,6 +19,8 @@ public interface ManagerDao {
     // 检查手机号是否存在
     int checkManagerRepeat(String tel);
     int checkManagerIdCard(@Param("idcard") String idcard);
+    Manager getManagerIdCard(@Param("idcard") String idcard);
+
 
 
     //分页查询，

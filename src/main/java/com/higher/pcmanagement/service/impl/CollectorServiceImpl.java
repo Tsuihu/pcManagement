@@ -3,6 +3,7 @@ package com.higher.pcmanagement.service.impl;
 import com.higher.pcmanagement.dao.CollectorDao;
 import com.higher.pcmanagement.exception.BusinessException;
 import com.higher.pcmanagement.pojo.Collector;
+import com.higher.pcmanagement.pojo.Manager;
 import com.higher.pcmanagement.pojo.People;
 import com.higher.pcmanagement.pojo.Point;
 import com.higher.pcmanagement.pojo.bo.PageRequestBo;
@@ -67,8 +68,22 @@ public class CollectorServiceImpl implements CollectorService {
      * @param collector
      */
     @Override
-    public void updateCollector(Collector collector) {
-        collectorDao.updateCollector(collector);
+    public void updateCollector(Collector collector) throws BusinessException {
+
+        System.out.println(collector.getIdcard());
+        if(collectorDao.checkCollectorIdCard(collector.getIdcard()) > 0) {
+            Collector collector1 = collectorDao.getCollectorIdCard(collector.getIdcard());
+            String idcard1 = collector1.getIdcard();
+            System.out.println(idcard1);
+            if (!idcard1.equals(collector.getIdcard())){
+                throw new BusinessException("身份证已存在",ResultCodeEnum.ERROR);
+            }
+        }
+            collectorDao.updateCollector(collector);
+
+
+
+
     }
 
 

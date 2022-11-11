@@ -27,7 +27,7 @@
     <select id="getCountByIdcard" resultType="int">
         select count(0)
         from people
-        where idcard=#{idcard}
+        where idcard = #{idcard}
     </select>
     <select id="getCountBytel" resultType="int">
         select count(0)

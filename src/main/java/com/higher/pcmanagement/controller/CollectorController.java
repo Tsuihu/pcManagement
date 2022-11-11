@@ -79,7 +79,7 @@ public class CollectorController {
      * @return
      */
     @PostMapping("/updateCollector.do")
-    public ResultModel<Collector> updateCollector(@RequestBody Collector collector){
+    public ResultModel<Collector> updateCollector(@RequestBody Collector collector) throws BusinessException {
 
         //密码进行MD5加密后查询登录
         String passwordMd5 = MD5.encrypt(collector.getPassword());

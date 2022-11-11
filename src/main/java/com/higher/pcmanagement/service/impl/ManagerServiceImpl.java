@@ -82,11 +82,17 @@ public class ManagerServiceImpl implements ManagerService {
 
     @Override
     public void updateManager(Integer managerId, String name, String idcard, String tel, String password) throws BusinessException {
+
+        System.out.println(idcard);
         if(managerDao.checkManagerIdCard(idcard) > 0) {
-            throw new BusinessException("身份证已存在",ResultCodeEnum.ERROR);
-        }else {
-            managerDao.updateManager(managerId,name,idcard,tel,password);
+            Manager manager = managerDao.getManagerIdCard(idcard);
+            String idcard1 = manager.getIdcard();
+            System.out.println(idcard1);
+            if (!idcard1.equals(idcard)){
+                throw new BusinessException("身份证已存在",ResultCodeEnum.ERROR);
+            }
         }
+            managerDao.updateManager(managerId,name,idcard,tel,password);
 
     }
 }

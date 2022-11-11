@@ -61,6 +61,8 @@ public class PeopleServiceImpl implements PeopleService {
     public void updatePeopleById(People people) throws BusinessException {
 //        通过id查询未改之前的信息
         People peopleOne = peopleDao.getOneByPeopleId(people.getPeopleId());
+        int i = peopleDao.getCountByIdcard(people.getIdcard());
+        System.out.println(i);
 //        对身份证的长度进行一个长度要求，要求18位
         if (people.getIdcard().length()==18){
 //            对手机后进行一个要求，要求11位
