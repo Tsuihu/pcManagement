@@ -15,7 +15,7 @@
 
     <select id="getAllName" resultType="com.higher.pcmanagement.pojo.People">
         select *
-        from people
+        from collector
     </select>
 
 
